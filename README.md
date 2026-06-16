@@ -1,2 +1,2 @@
 # Java-Cafe
-Coffee sale point project for the Object Oriented Programming discipline
+Coffee shop point of sale system for Object Oriented Programming discipline
