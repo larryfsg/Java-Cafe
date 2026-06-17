@@ -8,7 +8,7 @@ import javax.swing.*;
 public class OrderEntryScreen extends JPanel{
     
     private Menu menu = new Menu(); // "wrapper" for the menu items (coffees)
-    //private JPanel cart; // will exhibit the orders
+    private ShoppingCart cart = new ShoppingCart(); // will exhibit the orders
 
     // constructor
     public OrderEntryScreen(){
@@ -17,9 +17,10 @@ public class OrderEntryScreen extends JPanel{
 
 
         this.setLayout(new BorderLayout());
-        //this.add(cart, BorderLayout.EAST);
+        this.add(cart, BorderLayout.EAST);
         this.add(menu, BorderLayout.CENTER);
     }
 
+    
     
 }
