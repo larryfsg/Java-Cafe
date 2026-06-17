@@ -71,4 +71,22 @@ public class Coffee{
 			return this.qtdL;
 		}
 	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Coffee{" +
+			"name='" + name + '\'' +
+			", ingredients='" + ingredients + '\'' +
+			", qtdS=" + qtdS +
+			", qtdM=" + qtdM +
+			", qtdL=" + qtdL +
+			", priceS=" + priceSizeS +
+			", priceM=" + priceSizeM +
+			", priceL=" + priceSizeL +
+			'}';
+	}
 }

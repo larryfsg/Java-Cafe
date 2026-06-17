@@ -7,7 +7,7 @@ public class Inventory{
     private ArrayList<Coffee> products;
 
     // Constructor
-    public Inventory(Coffee coffee){
+    public Inventory(){
         products = new ArrayList<>();
     }
 
