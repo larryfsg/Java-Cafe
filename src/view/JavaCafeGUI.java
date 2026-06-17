@@ -37,5 +37,16 @@ public class JavaCafeGUI extends JFrame{
 		setVisible(true);
     }
 
+
+    // Creates a customized JLabel used for tittles
+    public static JLabel H1Text(String text){
+        JLabel h1Text = new JLabel(text);
+
+        h1Text.setFont(new Font("Arial", Font.BOLD, 30));
+	    h1Text.setForeground(new Color(84, 47, 49));
+
+        return h1Text;
+    }
+
     
 }
