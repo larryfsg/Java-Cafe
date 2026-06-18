@@ -11,13 +11,10 @@ public class CoffeeButton extends JButton {
 
     public CoffeeButton(String coffeeName, String imgPath){
         super(coffeeName);
-        
-
 
         // Settin coffee image -------------------------------------------
-        auxImg = new ImageIcon(getClass().getResource(imgPath));
-        System.out.println(auxImg.getIconWidth());
-        Image scaledImage = auxImg.getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH);
+        auxImg = new ImageIcon(getClass().getResource(imgPath)); // getting image
+        Image scaledImage = auxImg.getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH); //resizing it
         finalImg = new ImageIcon(scaledImage);
         this.setIcon(finalImg);
 
@@ -31,7 +28,6 @@ public class CoffeeButton extends JButton {
         this.setHorizontalTextPosition(SwingConstants.CENTER);  
         this.setBorderPainted(false);      
         this.setFocusPainted(false);  
-        
     }
 
 }

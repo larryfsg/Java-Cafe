@@ -48,5 +48,23 @@ public class JavaCafeGUI extends JFrame{
         return h1Text;
     }
 
+    public static JLabel H3Text(String text){
+        JLabel h3Text = new JLabel(text);
+
+        h3Text.setFont(new Font("Inter", Font.BOLD, 16));
+        h3Text.setForeground(new Color(84, 47, 49));
+
+        return h3Text;
+    }
+
+    public static JLabel smallerText(String text){
+        JLabel smallText = new JLabel(text);
+
+        smallText.setFont(new Font("Inter", Font.BOLD, 12));
+        smallText.setForeground(new Color(84, 47, 49));
+
+        return smallText;
+    }
+
     
 }
