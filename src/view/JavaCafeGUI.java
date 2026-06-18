@@ -5,17 +5,20 @@ import javax.swing.*;
 //import java.awt.event.ActionListener;
 //import java.awt.event.ActionEvent;
 
+import model.Inventory;
+import persistence.InventoryCSVLoader;
+
 public class JavaCafeGUI extends JFrame{
 
     private Header header = new Header();
     private JPanel contentPane = new JPanel();
     private CardLayout cardLayout = new CardLayout(); // Content pane's layout manager
     private OrderEntryScreen orderScreen = new OrderEntryScreen();
+    private InventoryScreen inventoryScreen = new InventoryScreen();
     // inventory screen
 
     // Constructor
     public JavaCafeGUI(){
-
         //setting window's appearence
 		setTitle("Java Cafe");	
 		setSize(1200, 780);		        // Window's dimensions (width, height)
@@ -25,7 +28,6 @@ public class JavaCafeGUI extends JFrame{
         //contentPane's arrange
         contentPane.setLayout(cardLayout);
         contentPane.add(orderScreen, "orderScreen");
-
 
         // Window's arrangement
         setLayout(new BorderLayout());
