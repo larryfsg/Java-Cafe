@@ -5,6 +5,7 @@ public class Order{
 	private String coffeeName;
 	private char Size;
 	private int quantity;
+	private double unityPrice;
 	private double totalPrice;
 	
 	// Constructos: creates an order
@@ -13,13 +14,14 @@ public class Order{
 		this.coffeeName = coffee.getName();
 		this.quantity = 1;
 		this.Size = size;
-		this.totalPrice = coffee.getPrice(Size);
+		this.unityPrice = coffee.getPrice(Size);
+		this.totalPrice = unityPrice;
 	}
 
     // This method changes the quantity of an order
 	public void changeQtd(int newQtd){
 		this.quantity = newQtd;
-		this.totalPrice = quantity * coffee.getPrice(Size);
+		this.totalPrice = quantity * unityPrice;
 	}
 
 	// Method that returns order's quantity
@@ -30,6 +32,18 @@ public class Order{
 	// Method that returns order's total price
 	public double getPrice(){
 		return this.totalPrice;
+	}
+
+	public String getCoffeeName(){
+		return this.coffeeName;
+	}
+
+	public char getSize(){
+		return this.Size;
+	}
+
+	public double getUnityPrice(){
+		return this.unityPrice;
 	}
 
 }
