@@ -12,7 +12,7 @@ public class OrderEntryScreen extends JPanel{
 
     // constructor
     public OrderEntryScreen(){
-        this.setBackground(new Color(246, 242, 175));
+        this.setBackground(new Color(255, 235, 193));
 
 
 

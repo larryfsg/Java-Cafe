@@ -17,13 +17,14 @@ public class ShoppingCart extends JPanel {
 
     public ShoppingCart(){
         // Customizing----------------------------------------------------
-        this.setBackground(new Color(255,236,102));
+        this.setBackground(new Color(238, 132, 132));
         this.setPreferredSize(new Dimension(370, 0));
+        this.setBorder(BorderFactory.createEmptyBorder(20,10,10,10)); 
 
         // Creating its components ---------------------------------------
         yourCart = JavaCafeGUI.H1Text("Your Cart");
-        totalPrice = new JLabel("R$00.00");
-        buyButton = new JButton("Buy");
+        totalPrice = JavaCafeGUI.H1Text("Total: R$00.00");
+        buyButton = createBuyButton();
         
         // Setting order's wrapper
         yourOrders = new JPanel();
@@ -44,7 +45,7 @@ public class ShoppingCart extends JPanel {
         buyWrapper.add(buyButton);
 
         // só para ver como o jpanel de pedido está
-        this.addOrder("Milk coffee", "S", "R$19.75");
+        this.addOrder("Milk coffee", "Small", "R$19.75", 10);
 
 
         // Adding components to itself -----------------------------------
@@ -55,8 +56,8 @@ public class ShoppingCart extends JPanel {
     }
 
     // Method that adds order to cart
-    public void addOrder(String coffeeName, String size, String price){
-        OrderJPanel order = new OrderJPanel(coffeeName, size, price);
+    public void addOrder(String coffeeName, String size, String price, int maxQtd){
+        OrderJPanel order = new OrderJPanel(coffeeName, size, price, maxQtd);
 
         // Adding order to your orders
         this.yourOrders.add(order);
@@ -64,4 +65,13 @@ public class ShoppingCart extends JPanel {
         this.yourOrders.repaint();
     }
 
+    private static JButton createBuyButton(){
+        JButton button = new JButton("Buy");
+        button.setBackground(new Color(115,218,129));
+        button.setForeground(Color.WHITE);
+        button.setFont(new Font("Arial", Font.BOLD, 35));
+        button.setPreferredSize(new Dimension(370, 50));
+
+        return button;
+    }
 }

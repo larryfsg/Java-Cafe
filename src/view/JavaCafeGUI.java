@@ -42,7 +42,7 @@ public class JavaCafeGUI extends JFrame{
     public static JLabel H1Text(String text){
         JLabel h1Text = new JLabel(text);
 
-        h1Text.setFont(new Font("Arial", Font.BOLD, 30));
+        h1Text.setFont(new Font("Arial", Font.BOLD, 25));
 	    h1Text.setForeground(new Color(84, 47, 49));
 
         return h1Text;
