@@ -7,6 +7,7 @@ import javax.swing.*;
 
 import model.Inventory;
 import persistence.InventoryCSVLoader;
+import persistence.NavegationListener;
 
 public class JavaCafeGUI extends JFrame{
 
@@ -28,6 +29,9 @@ public class JavaCafeGUI extends JFrame{
         //contentPane's arrange
         contentPane.setLayout(cardLayout);
         contentPane.add(orderScreen, "orderScreen");
+        contentPane.add(inventoryScreen, "inventoryScreen");
+
+        addNavegationListener();
 
         // Window's arrangement
         setLayout(new BorderLayout());
@@ -37,6 +41,15 @@ public class JavaCafeGUI extends JFrame{
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+    }
+
+    // Adding listener to header's buttons
+    private void addNavegationListener(){
+        JButton orderButton = header.getOrderEntryButton();
+        JButton inventoryButton = header.getInventoryButton();
+
+        orderButton.addActionListener(new NavegationListener("orderScreen", cardLayout, contentPane));
+        inventoryButton.addActionListener(new NavegationListener("inventoryScreen", cardLayout, contentPane));
     }
 
 

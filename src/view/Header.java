@@ -26,6 +26,14 @@ public class Header extends JPanel {
         this.add(inventoryButton);
     }
 
+    public JButton getOrderEntryButton(){
+        return orderEntryButton;
+    }
+
+    public JButton getInventoryButton(){
+        return inventoryButton;
+    }
+
     // é private pq só a classe header vai usar e é estático pq nao precisa de uma instancia da header
     private static JButton createHeaderButton(String text){
         JButton button = new JButton(text);
