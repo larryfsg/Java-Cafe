@@ -13,7 +13,14 @@ public class CoffeeButton extends JButton {
         super(coffeeName);
 
         // Settin coffee image -------------------------------------------
-        auxImg = new ImageIcon(getClass().getResource(imgPath)); // getting image
+        try{    // tries to get coffee image
+            auxImg = new ImageIcon(getClass().getResource(imgPath)); // getting image
+
+        } catch (NullPointerException e){
+            // if the image doesn't exist, use a blank picture as placeholder
+            auxImg = new ImageIcon(getClass().getResource("/view/images/empty.jpg"));
+        }
+
         Image scaledImage = auxImg.getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH); //resizing it
         finalImg = new ImageIcon(scaledImage);
         this.setIcon(finalImg);

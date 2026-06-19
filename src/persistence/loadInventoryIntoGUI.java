@@ -37,8 +37,7 @@ public class loadInventoryIntoGUI{
             InventoryScreen inventoryScreen = mainFrame.getInventoryScreen();
 
             CoffeeStockButton coffeeStockButton = 
-            new CoffeeStockButton(coffee.getName(), "a", coffee.getStock('S'),
-            coffee.getStock('M'), coffee.getStock('L'));
+            new CoffeeStockButton(coffee.getName(), coffee.getStock('S'), coffee.getStock('M'), coffee.getStock('L'));
 
             inventoryScreen.addInventoryItems(coffeeStockButton);
         }
