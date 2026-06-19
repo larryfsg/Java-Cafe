@@ -8,6 +8,7 @@ import javax.swing.*;
 import model.Inventory;
 import persistence.InventoryCSVLoader;
 import persistence.NavegationListener;
+import persistence.loadInventoryIntoGUI;
 
 public class JavaCafeGUI extends JFrame{
 
@@ -20,6 +21,11 @@ public class JavaCafeGUI extends JFrame{
 
     // Constructor
     public JavaCafeGUI(){
+        Inventory javaCafeInventory = InventoryCSVLoader.load("coffees.csv");
+        loadInventoryIntoGUI LIG = new loadInventoryIntoGUI(this, javaCafeInventory);
+        LIG.addCoffeToInventory();
+        LIG.addCoffeeToMenu();
+
         //setting window's appearence
 		setTitle("Java Cafe");	
 		setSize(1200, 780);		        // Window's dimensions (width, height)
@@ -50,6 +56,13 @@ public class JavaCafeGUI extends JFrame{
 
         orderButton.addActionListener(new NavegationListener("orderScreen", cardLayout, contentPane));
         inventoryButton.addActionListener(new NavegationListener("inventoryScreen", cardLayout, contentPane));
+    }
+
+    public OrderEntryScreen getOrderScreen(){
+        return this.orderScreen;
+    }
+    public InventoryScreen getInventoryScreen(){
+        return this.inventoryScreen;
     }
 
 

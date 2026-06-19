@@ -11,14 +11,12 @@ public class Menu extends JPanel{
         this.setOpaque(false);
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 10));
 
-        addCoffee("milkCoffee", "/view/images/milkCoffee.jpeg");
+        //addCoffee("milkCoffee", "/view/images/milkCoffee.jpeg");
     }
 
     // adds coffee to menu
-    public void addCoffee(String coffeeName, String imgPath){
-        CoffeeButton button = new CoffeeButton(coffeeName, imgPath);
-
-        this.add(button);
+    public void addCoffee(CoffeeButton coffee){
+        this.add(coffee);
         this.revalidate();
         this.repaint();
     }

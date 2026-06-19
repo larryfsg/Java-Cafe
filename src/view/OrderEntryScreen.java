@@ -21,6 +21,8 @@ public class OrderEntryScreen extends JPanel{
         this.add(menu, BorderLayout.CENTER);
     }
 
-    
+    public Menu getMenu(){
+        return this.menu;
+    }
     
 }

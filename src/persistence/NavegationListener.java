@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 
-import model.*;
-import view.*;
+// import model.*;
+// import view.*;
 
 
 public class NavegationListener  implements ActionListener{

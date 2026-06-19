@@ -5,6 +5,7 @@ public class Coffee{
     // Attributes
 	private String name; 		// Holds the coffee's name
 	private String ingredients; // Coffee's ingredients
+	private String imgPath;
 
 	private double priceSizeS; // Coffee's price by size
 	private double priceSizeM;
@@ -16,9 +17,11 @@ public class Coffee{
 				     
 
 	// Class constructor
-	public Coffee(String name, String ingred, double priceS, double priceM, double priceL){
-		this.name = name;
+	public Coffee(String nameinput, String ingred, double priceS, double priceM, double priceL){
+		this.name = nameinput;
 		this.ingredients = ingred;
+		String aux = ("/view/images/"+ nameinput.replaceAll("\\s","") +".jpeg");
+		this.imgPath = aux;
 		this.priceSizeS= priceS;
 		this.priceSizeM = priceM;
 		this.priceSizeL = priceL;
@@ -60,6 +63,11 @@ public class Coffee{
 		return this.ingredients;
 	}
     
+	// Method that returns coffee's img path
+	public String getImgPath(){
+		return this.imgPath;
+	}
+
 	public int getStock(char size){
 		if (size == 'S'){
 			return this.qtdS;

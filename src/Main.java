@@ -9,6 +9,7 @@ import view.*;
 public class Main {
     
     public static void main(String args[]){
+        // Loading inventory from csv file
 
         JavaCafeGUI teste = new JavaCafeGUI();
         new PickSize(teste, "Milk coffee", "Coffee with milk.", "R$10.90", "18.90", "29.70");
