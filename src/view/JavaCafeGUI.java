@@ -5,10 +5,10 @@ import javax.swing.*;
 //import java.awt.event.ActionListener;
 //import java.awt.event.ActionEvent;
 
-import model.Inventory;
-import persistence.InventoryCSVLoader;
-import persistence.NavegationListener;
-import persistence.loadInventoryIntoGUI;
+import controller.NavegationListener;
+// import model.Inventory;
+// import persistence.InventoryCSVLoader;
+// import persistence.loadInventoryIntoGUI;
 
 public class JavaCafeGUI extends JFrame{
 
@@ -21,10 +21,10 @@ public class JavaCafeGUI extends JFrame{
 
     // Constructor
     public JavaCafeGUI(){
-        Inventory javaCafeInventory = InventoryCSVLoader.load("coffees.csv");
-        loadInventoryIntoGUI LIG = new loadInventoryIntoGUI(this, javaCafeInventory);
-        LIG.addCoffeToInventory();
-        LIG.addCoffeeToMenu();
+        // Inventory javaCafeInventory = InventoryCSVLoader.load("coffees.csv");
+        // loadInventoryIntoGUI LIG = new loadInventoryIntoGUI(this, javaCafeInventory);
+        // LIG.addCoffeToInventory();
+        // LIG.addCoffeeToMenu();
 
         //setting window's appearence
 		setTitle("Java Cafe");	
@@ -61,6 +61,11 @@ public class JavaCafeGUI extends JFrame{
     public OrderEntryScreen getOrderScreen(){
         return this.orderScreen;
     }
+    
+    public Menu getMenu(){
+        return this.orderScreen.getMenu();
+    }
+
     public InventoryScreen getInventoryScreen(){
         return this.inventoryScreen;
     }
