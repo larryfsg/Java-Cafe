@@ -34,6 +34,7 @@ public class InventoryCSVLoader {
                 double priceM = Double.parseDouble(data[6].trim());
                 double priceL = Double.parseDouble(data[7].trim());
 
+                // Creates a coffee object to each product found in the csv file
                 Coffee coffee = new Coffee(
                     name,
                     ingredients,
