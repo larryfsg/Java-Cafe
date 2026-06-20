@@ -1,9 +1,10 @@
 package view;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import javax.swing.*;
-//import java.awt.event.ActionListener;
-//import java.awt.event.ActionEvent;
+
 
 public class PickSize extends JDialog {
     private JLabel coffeeName;
@@ -12,6 +13,9 @@ public class PickSize extends JDialog {
     private JButton medium;
     private JButton large;
     private JButton cancel;
+
+    private char selectedSize;
+    private boolean selected = false;
 
 
     public PickSize(JFrame parent, String name, String desc, String smallPrice, String mediumPrice, String largePrice){
@@ -35,6 +39,17 @@ public class PickSize extends JDialog {
         large = pickSizeButton("Large: "+ largePrice);
         cancel = pickSizeButton("Cancel");
 
+        // Setting its buttons action listeners
+        small.addActionListener(e -> onButtonClick('S'));
+        medium.addActionListener(e -> onButtonClick('M'));
+        large.addActionListener(e -> onButtonClick('L'));
+        cancel.addActionListener(new ActionListener() {
+            @Override
+				public void actionPerformed(ActionEvent e){
+					dispose();
+				}
+        });
+
         // Adding its components -----------------------------------------
         panel.add(coffeeName);
         panel.add(coffeeDescription);
@@ -52,6 +67,22 @@ public class PickSize extends JDialog {
 
         this.setVisible(true);
     }
+
+    //Action listeners
+    private void onButtonClick(char size){
+        selectedSize = size;
+        selected = true;
+        this.dispose();
+    }
+
+    public char getSelectedSize(){
+        return this.selectedSize;
+    }
+
+    public boolean getStatus(){
+        return this.selected;
+    }
+
 
     // Helper method
     private static JButton pickSizeButton(String text){

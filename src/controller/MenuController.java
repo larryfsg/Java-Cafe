@@ -10,6 +10,7 @@ import view.Menu;
 import view.PickSize;
 
 public class MenuController implements ActionListener{
+
    private JavaCafeGUI javaCafeGUI;
    private Menu menu;
    private Inventory inventory;
@@ -36,24 +37,23 @@ public class MenuController implements ActionListener{
 
    }
 
-   // Action listener for coffee buttons and Jdialog for size selection
+   // Action listener for coffee buttons
    @Override 
     public void actionPerformed(ActionEvent e){
-		String command = e.getActionCommand();
+		String coffeeName = e.getActionCommand();
+      PickSize pickSizePopUp;
 
-      // If coffee size was chosen ----------------------------------------------------------------
-      if (command.equals("S") || command.equals("M") || command.equals("L")){
-         // add order to cart !!
-      }
-      else{
-      // If coffee button was clicked ------------------------------------------------------------
-         
-         Coffee coffee = inventory.getCoffee(command);
-         if (coffee != null){
-            String sPrice = String.format("R$%.2f", coffee.getPrice('S'));
-            String mPrice = String.format("R$%.2f", coffee.getPrice('M'));
-            String lPrice = String.format("R$%.2f", coffee.getPrice('L'));
-            new PickSize(javaCafeGUI, coffee.getName(), coffee.getIngredients(), sPrice, mPrice, lPrice);
+      Coffee coffee = inventory.getCoffee(coffeeName);
+      if (coffee != null){ // if coffee is found in inventory
+
+         String sPrice = String.format("R$%.2f", coffee.getPrice('S'));
+         String mPrice = String.format("R$%.2f", coffee.getPrice('M'));
+         String lPrice = String.format("R$%.2f", coffee.getPrice('L'));
+         pickSizePopUp = new PickSize(javaCafeGUI, coffee.getName(), coffee.getIngredients(), sPrice, mPrice, lPrice);
+      
+         if (pickSizePopUp.getStatus()){
+            char size = pickSizePopUp.getSelectedSize();  
+            System.out.printf("%c", size);
          }
       }
    }
