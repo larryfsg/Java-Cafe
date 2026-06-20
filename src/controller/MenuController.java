@@ -1,10 +1,14 @@
 package controller;
 
 import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionEvent;
 
 import model.Coffee;
 import model.Inventory;
+import model.OutOfStockException;
 import view.JavaCafeGUI;
 import view.Menu;
 import view.PickSize;
@@ -53,8 +57,15 @@ public class MenuController implements ActionListener{
       
          if (pickSizePopUp.getStatus()){
             char size = pickSizePopUp.getSelectedSize();
-            orderController.addOrderToCart(coffeeName, size);  
-            System.out.printf("%c", size);
+
+            // Tries to add coffee to cart
+            try{
+               orderController.addOrderToCart(coffeeName, size);  
+            
+            } catch(OutOfStockException ex){
+
+               JOptionPane.showMessageDialog(menu, ex.getMessage());
+            }
          }
       }
    }
