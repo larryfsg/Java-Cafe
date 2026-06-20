@@ -24,5 +24,7 @@ public class OrderEntryScreen extends JPanel{
     public Menu getMenu(){
         return this.menu;
     }
-    
+    public ShoppingCart getCart(){
+        return this.cart;
+    }
 }

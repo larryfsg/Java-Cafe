@@ -10,7 +10,7 @@ import view.Menu;
 import view.PickSize;
 
 public class MenuController implements ActionListener{
-
+   private OrderController orderController;
    private JavaCafeGUI javaCafeGUI;
    private Menu menu;
    private Inventory inventory;
@@ -52,11 +52,15 @@ public class MenuController implements ActionListener{
          pickSizePopUp = new PickSize(javaCafeGUI, coffee.getName(), coffee.getIngredients(), sPrice, mPrice, lPrice);
       
          if (pickSizePopUp.getStatus()){
-            char size = pickSizePopUp.getSelectedSize();  
+            char size = pickSizePopUp.getSelectedSize();
+            orderController.addOrderToCart(coffeeName, size);  
             System.out.printf("%c", size);
          }
       }
    }
 
+   public void setOrderController(OrderController oc){
+      this.orderController = oc;
+   }
 
 }

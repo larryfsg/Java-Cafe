@@ -65,6 +65,9 @@ public class JavaCafeGUI extends JFrame{
     public Menu getMenu(){
         return this.orderScreen.getMenu();
     }
+    public ShoppingCart getCart(){
+        return this.orderScreen.getCart();
+    }
 
     public InventoryScreen getInventoryScreen(){
         return this.inventoryScreen;
