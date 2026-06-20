@@ -69,6 +69,10 @@ public class ShoppingCart extends JPanel {
         this.yourOrders.repaint();
     }
 
+    public void setTotalPrice(String price){
+        this.totalPrice.setText(price);
+    }
+
     private static JButton createBuyButton(){
         JButton button = new JButton("Buy");
         button.setBackground(new Color(115,218,129));

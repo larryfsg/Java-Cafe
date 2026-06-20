@@ -11,6 +11,7 @@ public class OrderController {
     private ArrayList<Order> orders;
     private ArrayList<OrderJPanel> visualOrders;
     private int nextId;
+    private double totalPrice;
     private Inventory inventory;
 
     public OrderController(ShoppingCart shoppingCart, Inventory invent){
@@ -19,6 +20,7 @@ public class OrderController {
         this.orders = new ArrayList<>();
         this.visualOrders = new ArrayList<>();
         this.nextId = 0;
+        this.totalPrice = 0;
     }
 
     // This method creates an order object and adds order to GUI
@@ -83,9 +85,11 @@ public class OrderController {
             visualOrder.onQuantityChange(e -> {
                 int newQtd = visualOrder.getOrderQuantity();
                 changeOrderQtd(newQtd, order, visualOrder);
+                calculateTotalPrice();
             });
-
         }
+
+        calculateTotalPrice();
     }
 
     public boolean isAlreadyInCart(String coffeeName, char size){
@@ -112,6 +116,16 @@ public class OrderController {
         order.changeQtd(newQtd);
         String newPrice = String.format("R$%.2f", order.getPrice());
         visualOrder.changeQtd(newQtd, newPrice);
+    }
+
+    public void calculateTotalPrice(){
+        totalPrice = 0;
+        for (Order order : orders){
+            totalPrice = totalPrice + (order.getPrice());
+        }
+
+        String price = String.format("Total: R$%.2f", totalPrice);
+        cart.setTotalPrice(price);
     }
 
 }
