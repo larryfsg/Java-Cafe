@@ -1,3 +1,4 @@
+import controller.MenuController;
 import model.Inventory;
 import persistence.InventoryCSVLoader;
 import view.*;
@@ -10,9 +11,13 @@ public class Main {
     
     public static void main(String args[]){
         // Loading inventory from csv file
+        Inventory javaCafeInventory = InventoryCSVLoader.load("coffees.csv");
 
-        JavaCafeGUI teste = new JavaCafeGUI();
-        new PickSize(teste, "Milk coffee", "Coffee with milk.", "R$10.90", "18.90", "29.70");
+        JavaCafeGUI javaCafeGUI = new JavaCafeGUI();
+
+        MenuController menuController = new MenuController(javaCafeGUI, javaCafeInventory);
+        menuController.addProductsToMenu();
+
     }
 
 
