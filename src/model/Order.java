@@ -1,6 +1,7 @@
 package model;
 
 public class Order{
+	private int id;
 	private Coffee coffee;		
 	private String coffeeName;
 	private char Size;
@@ -9,7 +10,9 @@ public class Order{
 	private double totalPrice;
 	
 	// Constructos: creates an order
-	public Order(Coffee coffee, char size){
+	public Order(int ID, Coffee coffee, char size){
+		this.id = ID;
+
 		this.coffee = coffee;
 		this.coffeeName = coffee.getName();
 		this.quantity = 1;
@@ -44,6 +47,10 @@ public class Order{
 
 	public double getUnityPrice(){
 		return this.unityPrice;
+	}
+
+	public int getId(){
+		return this.id;
 	}
 
 }

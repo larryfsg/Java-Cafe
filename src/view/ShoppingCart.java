@@ -43,10 +43,6 @@ public class ShoppingCart extends JPanel {
         buyWrapper.add(totalPrice);
         buyWrapper.add(buyButton);
 
-        // só para ver como o jpanel de pedido está
-        this.addOrder("Milk coffee", "Small", "R$19.75", 10);
-
-
         // Adding components to itself -----------------------------------
         this.setLayout(new BorderLayout());
         this.add(yourCart, BorderLayout.NORTH);
@@ -72,13 +68,6 @@ public class ShoppingCart extends JPanel {
         this.yourOrders.revalidate();
         this.yourOrders.repaint();
     }
-
-    public OrderJPanel[] getOrders(){
-        OrderJPanel[] orders = (OrderJPanel[]) this.yourOrders.getComponents();
-        return orders;
-    }
-
-    
 
     private static JButton createBuyButton(){
         JButton button = new JButton("Buy");

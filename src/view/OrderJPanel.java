@@ -83,22 +83,31 @@ public class OrderJPanel extends JPanel {
         this.add(remove, gbc);
     }
 
-    public void increaseQtd(){
-        this.qtd.setValue(qtd.getNextValue());
+    public void changeQtd(int newQtd, String newPrice){
+        this.qtd.setValue(newQtd);
+        this.price.setText(newPrice);
+
+        this.revalidate();
+        this.repaint();
     }
 
     public void setMaxQtd(int maxQtd){
         ((SpinnerNumberModel) qtd.getModel()).setMaximum(maxQtd);
     }
 
+
     // This method accept a listener that tells what it need to do when 'remove' button is clicked
     public void onRemoveAction(ActionListener listener){
         this.remove.addActionListener(listener);
     }
 
-    // public void onQuantityChange(ChangeListener listener){
-    //     this.qtd.addChangeListener(listener);
-    // }
+    public void onQuantityChange(ChangeListener listener){
+        this.qtd.addChangeListener(listener);
+    }
+
+    public int getOrderQuantity(){
+        return (Integer) this.qtd.getValue();
+    }
 
 
 }
