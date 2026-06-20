@@ -1,9 +1,11 @@
 package view;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
-//import java.awt.event.ActionListener;
-//import java.awt.event.ActionEvent;
+import javax.swing.event.ChangeListener;
+
 
 public class OrderJPanel extends JPanel {
     
@@ -79,14 +81,24 @@ public class OrderJPanel extends JPanel {
         gbc.weightx = 0.0;
         gbc.anchor = GridBagConstraints.EAST;
         this.add(remove, gbc);
-
-        // this.add(coffeeName);
-        // this.add(this.size);
-        // this.add(this.price);
-        // this.add(remove);
     }
 
+    public void increaseQtd(){
+        this.qtd.setValue(qtd.getNextValue());
+    }
 
+    public void setMaxQtd(int maxQtd){
+        ((SpinnerNumberModel) qtd.getModel()).setMaximum(maxQtd);
+    }
+
+    // This method accept a listener that tells what it need to do when 'remove' button is clicked
+    public void onRemoveAction(ActionListener listener){
+        this.remove.addActionListener(listener);
+    }
+
+    // public void onQuantityChange(ChangeListener listener){
+    //     this.qtd.addChangeListener(listener);
+    // }
 
 
 }

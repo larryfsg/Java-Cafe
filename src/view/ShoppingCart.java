@@ -2,8 +2,7 @@ package view;
 
 import java.awt.*;
 import javax.swing.*;
-//import java.awt.event.ActionListener;
-//import java.awt.event.ActionEvent;
+
 
 public class ShoppingCart extends JPanel {
     
@@ -56,14 +55,30 @@ public class ShoppingCart extends JPanel {
     }
 
     // Method that adds order to cart
-    public void addOrder(String coffeeName, String size, String price, int maxQtd){
+    public OrderJPanel addOrder(String coffeeName, String size, String price, int maxQtd){
         OrderJPanel order = new OrderJPanel(coffeeName, size, price, maxQtd);
 
         // Adding order to your orders
         this.yourOrders.add(order);
         this.yourOrders.revalidate();
         this.yourOrders.repaint();
+
+        return order;
     }
+
+    // Method that removes order from cart
+    public void removeOrder(OrderJPanel order){
+        this.yourOrders.remove(order);
+        this.yourOrders.revalidate();
+        this.yourOrders.repaint();
+    }
+
+    public OrderJPanel[] getOrders(){
+        OrderJPanel[] orders = (OrderJPanel[]) this.yourOrders.getComponents();
+        return orders;
+    }
+
+    
 
     private static JButton createBuyButton(){
         JButton button = new JButton("Buy");
