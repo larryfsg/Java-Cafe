@@ -25,4 +25,18 @@ public class Inventory{
     public ArrayList<Coffee> getProducts(){
         return products;
     }
+
+    // Method thar returns one coffee from inventory
+    public Coffee getCoffee(String coffeeName){
+
+        for (Coffee coffee : products){
+            if(coffeeName.equals(coffee.getName())){
+                return coffee;
+            }
+
+        }
+
+        // in case coffee wasn't found
+        return null;
+    }
 }
