@@ -78,7 +78,8 @@ public class OrderController {
             visualOrder.onRemoveAction(e-> {
                 orders.remove(order);           // Removes order object (model)
                 visualOrders.remove(visualOrder);
-                cart.removeOrder(visualOrder);    
+                cart.removeOrder(visualOrder);
+                calculateTotalPrice();
             });
 
             // Action listener for quantity change

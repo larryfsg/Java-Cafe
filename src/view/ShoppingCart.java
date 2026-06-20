@@ -78,7 +78,9 @@ public class ShoppingCart extends JPanel {
         button.setBackground(new Color(115,218,129));
         button.setForeground(Color.WHITE);
         button.setFont(new Font("Arial", Font.BOLD, 35));
-        button.setPreferredSize(new Dimension(370, 50));
+        button.setPreferredSize(new Dimension(370, 45));
+        button.setMaximumSize(new Dimension(Integer.MAX_VALUE, 45));
+        button.setMinimumSize(new Dimension(Integer.MAX_VALUE, 45));
 
         return button;
     }

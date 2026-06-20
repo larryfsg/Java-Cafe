@@ -1,8 +1,7 @@
 package model;
 
 public class Order{
-	private int id;
-	private Coffee coffee;		
+	private int id;		
 	private String coffeeName;
 	private char Size;
 	private int quantity;
@@ -13,7 +12,6 @@ public class Order{
 	public Order(int ID, Coffee coffee, char size){
 		this.id = ID;
 
-		this.coffee = coffee;
 		this.coffeeName = coffee.getName();
 		this.quantity = 1;
 		this.Size = size;

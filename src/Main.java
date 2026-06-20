@@ -1,12 +1,10 @@
+import controller.InventoryController;
 import controller.MenuController;
 import controller.OrderController;
 import model.Inventory;
 import persistence.InventoryCSVLoader;
 import view.*;
-// import model.*;
-// import model.Coffee;
-// import persistence.InventoryCSVLoader;
-// import persistence.InventoryCSVSaver;
+
 
 public class Main {
     
@@ -15,12 +13,15 @@ public class Main {
         Inventory javaCafeInventory = InventoryCSVLoader.load("coffees.csv");
        
         JavaCafeGUI javaCafeGUI = new JavaCafeGUI();
-
-        OrderController orderController = new OrderController(javaCafeGUI.getCart(), javaCafeInventory);
+        
+        InventoryController inventoryController = new InventoryController(javaCafeGUI, javaCafeInventory);
+        inventoryController.addProductsToInventory();
         
         MenuController menuController = new MenuController(javaCafeGUI, javaCafeInventory);
-        menuController.setOrderController(orderController);
         menuController.addProductsToMenu();
+
+        OrderController orderController = new OrderController(javaCafeGUI.getCart(), javaCafeInventory);
+        menuController.setOrderController(orderController);
 
     }
 
