@@ -26,7 +26,7 @@ public class Inventory{
         return products;
     }
 
-    // Method thar returns one coffee from inventory
+    // Method that returns one coffee from inventory
     public Coffee getCoffee(String coffeeName){
 
         for (Coffee coffee : products){
@@ -38,5 +38,18 @@ public class Inventory{
 
         // in case coffee wasn't found
         return null;
+    }
+
+    // Method that updates the stock of a coffee in the inventory
+    public void updateStock(String coffeeName, int sQtd, int mQtd, int lQtd){
+
+        for (Coffee coffee : products){
+            if(coffeeName.equals(coffee.getName())){
+                coffee.setInventory('S', sQtd);
+                coffee.setInventory('M', mQtd);
+                coffee.setInventory('L', lQtd);
+            }
+
+        }
     }
 }

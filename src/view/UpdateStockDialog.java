@@ -15,6 +15,9 @@ public class UpdateStockDialog extends JDialog {
     private JButton confirmButton;
     private JButton cancelButton;
 
+    // Confirmed
+    private boolean confirmed = false;
+
     // Constructor
     public UpdateStockDialog(JFrame parent) {
         super(parent, "Update Stock", true);
@@ -75,13 +78,24 @@ public class UpdateStockDialog extends JDialog {
         add(fieldsPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
 
+        // Confirm and Cancel Buttons
+        confirmButton.addActionListener(e -> {
+            confirmed = true;
+            setVisible(false);
+        });
+
+        cancelButton.addActionListener(e -> {
+            confirmed = false;
+            setVisible(false);
+        });
+
         pack();
         setLocationRelativeTo(parent);
-        this.setVisible(true);
     }
 
-    public int getStockS() {
-        return Integer.parseInt(smallField.getText());
+    // Int Getters
+    public int getStockS(int actualStock) {
+            return Integer.parseInt(smallField.getText());
     }
 
     public int getStockM() {
@@ -91,4 +105,24 @@ public class UpdateStockDialog extends JDialog {
     public int getStockL() {
         return Integer.parseInt(largeField.getText());
     }
+
+    // String Getters
+    public String getStockSText() {
+        return smallField.getText();
+    }
+
+    public String getStockMText() {
+        return mediumField.getText();
+    }
+
+    public String getStockLText() {
+        return largeField.getText();
+    }
+
+    // Return is the changes are confirmed
+    public boolean isConfirmed() {
+        return confirmed;
+    }
+
+    
 }

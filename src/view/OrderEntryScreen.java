@@ -13,9 +13,6 @@ public class OrderEntryScreen extends JPanel{
     // constructor
     public OrderEntryScreen(){
         this.setBackground(new Color(255, 235, 193));
-
-
-
         this.setLayout(new BorderLayout());
         this.add(cart, BorderLayout.EAST);
         this.add(menu, BorderLayout.CENTER);

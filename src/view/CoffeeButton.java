@@ -31,7 +31,7 @@ public class CoffeeButton extends JButton {
         this.setBackground(new Color(124, 64, 67));
         this.setForeground(Color.WHITE);
         this.setFont(new Font("Arial", Font.BOLD, 14));
-        this.setPreferredSize(new Dimension(160, 200));
+        this.setPreferredSize(new Dimension(180, 200));
         this.setVerticalTextPosition(SwingConstants.BOTTOM);
         this.setHorizontalTextPosition(SwingConstants.CENTER);  
         this.setBorderPainted(false);      
