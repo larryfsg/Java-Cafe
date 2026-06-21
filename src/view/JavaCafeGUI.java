@@ -76,13 +76,20 @@ public class JavaCafeGUI extends JFrame{
         return this.inventoryScreen;
     }
 
+    // Static methods / object used to set the application theme
+    public static Color darkestShade = new Color(54,42,66);
+    public static Color darkShade = new Color(87,73,100);
+    public static Color secondaryColor = new Color(242,189,224);
+    public static Color tertColor = new Color(181,186,255);
+    public static Color buttonColor01 = new Color(255,252,167);
+    public static Color buttonColor02 = new Color(197,153,182);
 
     // Creates a customized JLabel used for tittles
     public static JLabel H1Text(String text){
         JLabel h1Text = new JLabel(text);
 
         h1Text.setFont(new Font("Arial", Font.BOLD, 25));
-	    h1Text.setForeground(new Color(84, 47, 49));
+	    h1Text.setForeground(darkestShade);
 
         return h1Text;
     }
@@ -91,7 +98,7 @@ public class JavaCafeGUI extends JFrame{
         JLabel h3Text = new JLabel(text);
 
         h3Text.setFont(new Font("Inter", Font.BOLD, 16));
-        h3Text.setForeground(new Color(84, 47, 49));
+        h3Text.setForeground(darkestShade);
 
         return h3Text;
     }
@@ -100,7 +107,7 @@ public class JavaCafeGUI extends JFrame{
         JLabel smallText = new JLabel(text);
 
         smallText.setFont(new Font("Inter", Font.BOLD, 12));
-        smallText.setForeground(new Color(84, 47, 49));
+        smallText.setForeground(darkestShade);
 
         return smallText;
     }

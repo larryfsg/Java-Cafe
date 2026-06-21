@@ -28,7 +28,7 @@ public class CoffeeButton extends JButton {
         this.setActionCommand(coffeeName);
 
         // Customizing button's appearence -------------------------------
-        this.setBackground(new Color(124, 64, 67));
+        this.setBackground(JavaCafeGUI.buttonColor02);
         this.setForeground(Color.WHITE);
         this.setFont(new Font("Arial", Font.BOLD, 14));
         this.setPreferredSize(new Dimension(180, 200));

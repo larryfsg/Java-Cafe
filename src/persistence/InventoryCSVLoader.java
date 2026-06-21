@@ -54,6 +54,7 @@ public class InventoryCSVLoader {
         // Verify IOException errors
         } catch (IOException e) {
             System.out.println("Falha no processamento do arquivo");
+            return null;
         }
         return inventory;
     }

@@ -17,7 +17,7 @@ public class OrderJPanel extends JPanel {
 
     public OrderJPanel(String name, String sizeInput, String priceInput, int maxQtd){
          // Customization ------------------------------------------------
-        this.setBackground(new Color(255,199,82));
+        this.setBackground(JavaCafeGUI.tertColor);
 		this.setPreferredSize(new Dimension(0, 80));
 		this.setMaximumSize(new Dimension(Integer.MAX_VALUE, 80)); // Isso aqui é pra ele esticar o máximo possível de largura        
         this.setBorder(BorderFactory.createEmptyBorder(5,10,5,10)); 

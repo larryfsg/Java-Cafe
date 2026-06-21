@@ -13,7 +13,7 @@ public class Header extends JPanel {
     public Header(){
         // Customization
 		this.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5)); // Align elements to the left with 10px gap between elements
-		this.setBackground(new Color(84, 47, 49));
+		this.setBackground(JavaCafeGUI.darkShade);
 		this.setPreferredSize(new Dimension(0,40)); // setting height: 40px
 
         
@@ -44,8 +44,8 @@ public class Header extends JPanel {
     private static JButton createHeaderButton(String text){
         JButton button = new JButton(text);
 
-        button.setBackground(new Color(238, 132, 132));
-		button.setForeground(Color.WHITE);
+        button.setBackground(JavaCafeGUI.buttonColor01);
+		button.setForeground(JavaCafeGUI.darkestShade);
 
         return button;
     }

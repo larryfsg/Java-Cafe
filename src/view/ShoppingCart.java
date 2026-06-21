@@ -20,7 +20,7 @@ public class ShoppingCart extends JPanel {
 
     public ShoppingCart(){
         // Customizing----------------------------------------------------
-        this.setBackground(new Color(238, 132, 132));
+        this.setBackground(JavaCafeGUI.secondaryColor);
         this.setPreferredSize(new Dimension(370, 0));
         this.setBorder(BorderFactory.createEmptyBorder(20,10,10,10)); 
 
@@ -89,8 +89,8 @@ public class ShoppingCart extends JPanel {
 
     private static JButton createBuyButton(){
         JButton button = new JButton("Buy");
-        button.setBackground(new Color(115,218,129));
-        button.setForeground(Color.WHITE);
+        button.setBackground(JavaCafeGUI.buttonColor01);
+        button.setForeground(JavaCafeGUI.darkestShade);
         button.setFont(new Font("Arial", Font.BOLD, 35));
         button.setPreferredSize(new Dimension(370, 45));
         button.setMaximumSize(new Dimension(Integer.MAX_VALUE, 45));
