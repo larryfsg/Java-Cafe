@@ -20,7 +20,7 @@ public class Coffee{
 	public Coffee(String nameinput, String ingred, double priceS, double priceM, double priceL){
 		this.name = nameinput;
 		this.ingredients = ingred;
-		String aux = ("/view/images/"+ nameinput.replaceAll("\\s","") +".jpeg");
+		String aux = ("/view/images/"+ nameinput.replaceAll("\\s","") +".png");
 		this.imgPath = aux;
 		this.priceSizeS= priceS;
 		this.priceSizeM = priceM;
@@ -68,7 +68,6 @@ public class Coffee{
 		return this.imgPath;
 	}
 
-	// Method that returns coffee's stock level given its size
 	public int getStock(char size){
 		if (size == 'S'){
 			return this.qtdS;

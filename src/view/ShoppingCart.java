@@ -89,7 +89,7 @@ public class ShoppingCart extends JPanel {
 
     private static JButton createBuyButton(){
         JButton button = new JButton("Buy");
-        button.setBackground(JavaCafeGUI.buttonColor01);
+        button.setBackground(JavaCafeGUI.buttonColor02);
         button.setForeground(JavaCafeGUI.darkestShade);
         button.setFont(new Font("Arial", Font.BOLD, 35));
         button.setPreferredSize(new Dimension(370, 45));

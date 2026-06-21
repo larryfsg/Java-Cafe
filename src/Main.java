@@ -5,13 +5,20 @@ import model.Inventory;
 import persistence.InventoryCSVLoader;
 import view.*;
 
-//import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import java.awt.*;
+
+import javax.swing.UIManager;
+
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 
 public class Main {
     
     public static void main(String args[]){
 
-        //FlatMacLightLaf.setup();
+        FlatMacLightLaf.setup();
+
+        UIManager.put("Panel.background", new Color(255, 252, 167));
+        UIManager.put("Button.background", new Color(197, 153, 182));
 
         // Loading inventory from csv file --------------------------------------------------------
         Inventory javaCafeInventory = InventoryCSVLoader.load("coffees.csv");

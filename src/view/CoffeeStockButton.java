@@ -26,7 +26,7 @@ public class CoffeeStockButton extends JPanel {
 
         this.coffeeName = coffeeName;
 
-        setBackground(new Color(124, 64, 67));
+        setBackground(JavaCafeGUI.buttonColor02);
         setPreferredSize(new Dimension(180, 300));
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -72,6 +72,7 @@ public class CoffeeStockButton extends JPanel {
 
         // Update Button
         updateButton = new JButton("Update");
+        updateButton.setBackground(JavaCafeGUI.buttonColor01);
         updateButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Listener

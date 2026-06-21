@@ -79,9 +79,9 @@ public class JavaCafeGUI extends JFrame{
     // Static methods / object used to set the application theme
     public static Color darkestShade = new Color(54,42,66);
     public static Color darkShade = new Color(87,73,100);
-    public static Color secondaryColor = new Color(242,189,224);
-    public static Color tertColor = new Color(181,186,255);
-    public static Color buttonColor01 = new Color(255,252,167);
+    public static Color secondaryColor = new Color(255,240,190);
+    public static Color tertColor = new Color(230,178,186);
+    public static Color buttonColor01 = new Color(255,240,190);
     public static Color buttonColor02 = new Color(197,153,182);
 
     // Creates a customized JLabel used for tittles
