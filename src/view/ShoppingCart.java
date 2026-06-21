@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 
@@ -79,6 +81,10 @@ public class ShoppingCart extends JPanel {
         this.subTotal.setText(subTotalText);
         this.taxes.setText(taxText);
         this.totalPrice.setText(totalText);
+    }
+
+    public void onBuyAction(ActionListener listener){
+        buyButton.addActionListener(listener);
     }
 
     private static JButton createBuyButton(){

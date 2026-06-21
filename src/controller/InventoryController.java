@@ -115,6 +115,22 @@ public class InventoryController implements ActionListener{
 
     }
 
+    // Decreases stock quantity in memory (model) and visually (GUI)
+    public void onPurchaseAction(String coffeeName, char size, int qtd){
+        Coffee coffee = inventory.getCoffee(coffeeName);
+
+        try {
+            inventory.decreaseStockQtd(coffee, size, qtd);
+
+            inventoryScreen.updateCoffeeButton(coffeeName, coffee.getStock('S'), coffee.getStock('M'), coffee.getStock('L'));
+            InventoryCSVSaver.save(inventory, "coffees.csv");
+        }
+        catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    
+    }
+
     // Utility function to partial update functionality
     private Integer parseOrNull(String text) {
         if (text == null || text.trim().isEmpty()) {

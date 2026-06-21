@@ -12,14 +12,14 @@ public class SalesReportUpdater{
     
     public static void update(ArrayList<Order> orderList, String fileName){
 
-        try(PrintWriter writer = new PrintWriter(new FileWriter(fileName), true)){
+        try(PrintWriter writer = new PrintWriter(new FileWriter(fileName, true))){
 
             for(Order order : orderList){
                 writer.println(
+                    order.getQuantity() + "," +
                     order.getCoffeeName() + "," +
                     order.getSize() + "," +
                     order.getUnityPrice() + "," +
-                    order.getQuantity() + "," +
                     order.getPrice()
                 );
             }

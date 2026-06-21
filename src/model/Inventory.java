@@ -40,6 +40,12 @@ public class Inventory{
         return null;
     }
 
+    public void decreaseStockQtd(Coffee coffee, char size, int qtd){
+        int newQtd = coffee.getStock(size) - qtd;
+       
+        coffee.setInventory(size, newQtd);
+    }
+
     // Method that updates the stock of a coffee in the inventory
     public void updateStock(String coffeeName, int sQtd, int mQtd, int lQtd){
 

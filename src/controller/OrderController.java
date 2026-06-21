@@ -5,18 +5,26 @@ import java.util.ArrayList;
 import model.*;
 import view.ShoppingCart;
 import view.OrderJPanel;
+import persistence.*;
 
 public class OrderController {
+    private InventoryController inventoryController;
+
     private ShoppingCart cart;
     private ArrayList<Order> orders;
     private ArrayList<OrderJPanel> visualOrders;
     private Inventory inventory;
 
-    public OrderController(ShoppingCart shoppingCart, Inventory invent){
+    public OrderController(ShoppingCart shoppingCart, Inventory invent, InventoryController ic){
+        this.inventoryController = ic;
+
         this.cart = shoppingCart;
         this.inventory = invent;
         this.orders = new ArrayList<>();
         this.visualOrders = new ArrayList<>();
+        shoppingCart.onBuyAction(e->{
+            makePurchase();
+        });
     }
 
     // This method creates an order object and adds order to GUI
@@ -133,6 +141,27 @@ public class OrderController {
         String totalPriceText = String.format("Total: R$%.2f", totalPrice);
 
         cart.setPrices(subTotalText, taxesText, totalPriceText);
+    }
+
+    private void makePurchase(){
+        // new Dialog displaying receipt
+
+        // Removing orders from cart visually -----------------------------
+        for (OrderJPanel visualOrder : visualOrders){
+            cart.removeOrder(visualOrder);
+        }
+        // Decrease stock
+        for (Order order : orders){
+            inventoryController.onPurchaseAction(order.getCoffeeName(), order.getSize(), order.getQuantity());
+        }
+
+        SalesReportUpdater.update(orders, "sales.csv");
+
+        // Removing orders ------------------------------------------------
+        orders.clear();
+        visualOrders.clear();
+        
+        calculatePrices();
     }
 
 }

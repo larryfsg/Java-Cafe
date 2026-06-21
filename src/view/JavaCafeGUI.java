@@ -6,6 +6,7 @@ import javax.swing.*;
 //import java.awt.event.ActionEvent;
 
 import controller.NavegationListener;
+import controller.SalesSummaryListener;
 // import model.Inventory;
 // import persistence.InventoryCSVLoader;
 // import persistence.loadInventoryIntoGUI;
@@ -53,9 +54,11 @@ public class JavaCafeGUI extends JFrame{
     private void addNavegationListener(){
         JButton orderButton = header.getOrderEntryButton();
         JButton inventoryButton = header.getInventoryButton();
+        JButton salesSummaryButton = header.getSalesSummaryButton();
 
         orderButton.addActionListener(new NavegationListener("orderScreen", cardLayout, contentPane));
         inventoryButton.addActionListener(new NavegationListener("inventoryScreen", cardLayout, contentPane));
+        salesSummaryButton.addActionListener(new SalesSummaryListener(this));
     }
 
     public OrderEntryScreen getOrderScreen(){

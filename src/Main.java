@@ -20,7 +20,7 @@ public class Main {
         MenuController menuController = new MenuController(javaCafeGUI, javaCafeInventory);
         menuController.addProductsToMenu();
 
-        OrderController orderController = new OrderController(javaCafeGUI.getCart(), javaCafeInventory);
+        OrderController orderController = new OrderController(javaCafeGUI.getCart(), javaCafeInventory, inventoryController);
         menuController.setOrderController(orderController);
         inventoryController.setOrderController(orderController);
     }

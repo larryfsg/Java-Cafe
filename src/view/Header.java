@@ -8,7 +8,7 @@ import javax.swing.*;
 public class Header extends JPanel {
     private JButton orderEntryButton;
     private JButton inventoryButton;
-
+    private JButton salesSummaryButton;
 
     public Header(){
         // Customization
@@ -20,10 +20,12 @@ public class Header extends JPanel {
         // Creating its buttons
         orderEntryButton = createHeaderButton("Order Entry");
         inventoryButton = createHeaderButton("Inventory");
+        salesSummaryButton = createHeaderButton("Sales Summary");
 
         // Adding buttons to itself
         this.add(orderEntryButton);
         this.add(inventoryButton);
+        this.add(salesSummaryButton);
     }
 
     public JButton getOrderEntryButton(){
@@ -32,6 +34,10 @@ public class Header extends JPanel {
 
     public JButton getInventoryButton(){
         return inventoryButton;
+    }
+
+    public JButton getSalesSummaryButton(){
+        return salesSummaryButton;
     }
 
     // é private pq só a classe header vai usar e é estático pq nao precisa de uma instancia da header
@@ -48,4 +54,3 @@ public class Header extends JPanel {
 
 
 }
-
