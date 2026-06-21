@@ -123,7 +123,7 @@ public class InventoryController implements ActionListener{
             inventory.decreaseStockQtd(coffee, size, qtd);
 
             inventoryScreen.updateCoffeeButton(coffeeName, coffee.getStock('S'), coffee.getStock('M'), coffee.getStock('L'));
-            InventoryCSVSaver.save(inventory, "coffees.csv");
+            InventoryCSVSaver.save(inventory, "coffee.csv");
         }
         catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());

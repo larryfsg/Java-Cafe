@@ -4,25 +4,34 @@ import java.util.ArrayList;
 
 import model.*;
 import view.ShoppingCart;
+import view.JavaCafeGUI;
 import view.OrderJPanel;
+import view.ReceiptJDialog;
 import persistence.*;
 
 public class OrderController {
     private InventoryController inventoryController;
 
+    private JavaCafeGUI parent;
     private ShoppingCart cart;
     private ArrayList<Order> orders;
     private ArrayList<OrderJPanel> visualOrders;
     private Inventory inventory;
 
-    public OrderController(ShoppingCart shoppingCart, Inventory invent, InventoryController ic){
+    private double subTotal;
+    private double totalPrice;
+    private double tax;
+
+
+    public OrderController(JavaCafeGUI javaCafe, Inventory invent, InventoryController ic){
         this.inventoryController = ic;
 
-        this.cart = shoppingCart;
+        this.parent = javaCafe;
+        this.cart = javaCafe.getCart();
         this.inventory = invent;
         this.orders = new ArrayList<>();
         this.visualOrders = new ArrayList<>();
-        shoppingCart.onBuyAction(e->{
+        cart.onBuyAction(e->{
             makePurchase();
         });
     }
@@ -125,9 +134,7 @@ public class OrderController {
 
     public void calculatePrices(){
 
-        double subTotal = 0;
-        double totalPrice;
-        double tax;
+        subTotal = 0;
 
         for (Order order : orders){
             subTotal = subTotal + (order.getPrice());
@@ -144,17 +151,35 @@ public class OrderController {
     }
 
     private void makePurchase(){
-        // new Dialog displaying receipt
+        StringBuilder finalTextReceip = new StringBuilder();
 
         // Removing orders from cart visually -----------------------------
         for (OrderJPanel visualOrder : visualOrders){
             cart.removeOrder(visualOrder);
         }
-        // Decrease stock
-        for (Order order : orders){
-            inventoryController.onPurchaseAction(order.getCoffeeName(), order.getSize(), order.getQuantity());
-        }
 
+        // Decreasing stock quantity -------------------------------------- 
+        // And building receipt text
+        for (Order order : orders){
+
+            // Ex: 3x   Milk Coffee   S   2.00 6.00
+            finalTextReceip.append(order.getQuantity()+"x\t");
+            finalTextReceip.append(order.getCoffeeName()+"\t");
+            finalTextReceip.append(order.getSize()+"\t");
+            finalTextReceip.append(order.getUnityPrice()+"\t");
+            finalTextReceip.append(order.getPrice()+"\n");
+
+            // Decreases stock
+            inventoryController.onPurchaseAction(order.getCoffeeName(), order.getSize(), order.getQuantity());
+        }   
+
+        // Adding sub total, tax and total price to Text Receipt
+        finalTextReceip.append("\n\nSubtotal:\t\t\t\t"+subTotal+"\n");
+        finalTextReceip.append("Tax:\t\t\t\t"+tax+"\n");
+        finalTextReceip.append("Total:\t\t\t\t"+totalPrice+"\n");
+
+
+        // Updating sales file -------------------------------------------
         SalesReportUpdater.update(orders, "sales.csv");
 
         // Removing orders ------------------------------------------------
@@ -162,6 +187,9 @@ public class OrderController {
         visualOrders.clear();
         
         calculatePrices();
-    }
+
+        ReceiptJDialog receiptJDialog = new ReceiptJDialog(parent, finalTextReceip.toString());
+        receiptJDialog.setVisible(true);
+    } 
 
 }

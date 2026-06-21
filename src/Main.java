@@ -5,10 +5,14 @@ import model.Inventory;
 import persistence.InventoryCSVLoader;
 import view.*;
 
+//import com.formdev.flatlaf.themes.FlatMacLightLaf;
 
 public class Main {
     
     public static void main(String args[]){
+
+        //FlatMacLightLaf.setup();
+
         // Loading inventory from csv file
         Inventory javaCafeInventory = InventoryCSVLoader.load("coffees.csv");
        
@@ -20,7 +24,7 @@ public class Main {
         MenuController menuController = new MenuController(javaCafeGUI, javaCafeInventory);
         menuController.addProductsToMenu();
 
-        OrderController orderController = new OrderController(javaCafeGUI.getCart(), javaCafeInventory, inventoryController);
+        OrderController orderController = new OrderController(javaCafeGUI, javaCafeInventory, inventoryController);
         menuController.setOrderController(orderController);
         inventoryController.setOrderController(orderController);
     }
