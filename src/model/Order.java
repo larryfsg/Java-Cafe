@@ -32,14 +32,17 @@ public class Order{
 		return this.totalPrice;
 	}
 
+	// Method that returns order's coffee name
 	public String getCoffeeName(){
 		return this.coffeeName;
 	}
 
+	// Method that returns order's coffee size
 	public char getSize(){
 		return this.Size;
 	}
 
+	// Method that returns order's unity price
 	public double getUnityPrice(){
 		return this.unityPrice;
 	}

@@ -68,6 +68,7 @@ public class Coffee{
 		return this.imgPath;
 	}
 
+	// Method that returns coffee's stock level given its size
 	public int getStock(char size){
 		if (size == 'S'){
 			return this.qtdS;
