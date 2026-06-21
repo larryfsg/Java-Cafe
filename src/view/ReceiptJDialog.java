@@ -11,7 +11,7 @@ public class ReceiptJDialog extends JDialog {
         super(parent, "Receipt", true);
 
         // Customizing ---------------------------------------------------
-        this.setSize(400,570);
+        this.setSize(470,570);
         this.setLocationRelativeTo(parent);
 
         JPanel panel = new JPanel();
@@ -21,6 +21,7 @@ public class ReceiptJDialog extends JDialog {
         // Creating its components ---------------------------------------
         javaCafe = JavaCafeGUI.H1Text("Java Café");
         items = new JTextArea(receiptText);
+        items.setEditable(false);
         
 
         // Adding components to itself -----------------------------------

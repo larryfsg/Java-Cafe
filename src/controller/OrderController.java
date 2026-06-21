@@ -2,6 +2,8 @@ package controller;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import model.*;
 import view.ShoppingCart;
 import view.JavaCafeGUI;
@@ -126,7 +128,16 @@ public class OrderController {
 
     // This method makes a purchase removing order from model and view and reducing stock
     private void makePurchase(){
+        
+        // If there are no orders in the cart
+        if (totalPrice == 0){
+            JOptionPane.showMessageDialog(null, "There are no products in your cart.");
+            return;
+        }
+
+
         StringBuilder finalTextReceip = new StringBuilder();
+        finalTextReceip.append("qtd\tproduct\tsize\tunity\ttotal\n");
 
         // Removing orders from GUI --------------------------------------
         for (OrderJPanel visualOrder : visualOrders){
@@ -141,17 +152,17 @@ public class OrderController {
             finalTextReceip.append(order.getQuantity()+"x\t");
             finalTextReceip.append(order.getCoffeeName()+"\t");
             finalTextReceip.append(order.getSize()+"\t");
-            finalTextReceip.append(order.getUnityPrice()+"\t");
-            finalTextReceip.append(order.getPrice()+"\n");
+            finalTextReceip.append(String.format("R$%.2f", order.getUnityPrice())+"\t");
+            finalTextReceip.append(String.format("R$%.2f", order.getPrice())+"\n");
 
             // Decreases stock
             inventoryController.onPurchaseAction(order.getCoffeeName(), order.getSize(), order.getQuantity());
         }   
 
         // Adding sub total, tax and total price to Text Receipt
-        finalTextReceip.append("\n\nSubtotal:\t\t\t\t"+subTotal+"\n");
-        finalTextReceip.append("Tax:\t\t\t\t"+tax+"\n");
-        finalTextReceip.append("Total:\t\t\t\t"+totalPrice+"\n");
+        finalTextReceip.append("\n\nSubtotal:\t\t\t\t"+String.format("R$%.2f",subTotal)+"\n");
+        finalTextReceip.append("Tax:\t\t\t\t"+String.format("R$%.2f",tax)+"\n");
+        finalTextReceip.append("Total:\t\t\t\t"+String.format("R$%.2f",totalPrice)+"\n");
 
 
         // Updating sales file -------------------------------------------

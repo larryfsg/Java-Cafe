@@ -47,7 +47,6 @@ public class JavaCafeGUI extends JFrame{
 
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
     }
 
     // Adding listener to header's buttons
@@ -79,6 +78,7 @@ public class JavaCafeGUI extends JFrame{
     // Static methods / object used to set the application theme
     public static Color darkestShade = new Color(54,42,66);
     public static Color darkShade = new Color(87,73,100);
+    public static Color backgroundColor = new Color(255,247,243);
     public static Color secondaryColor = new Color(255,240,190);
     public static Color tertColor = new Color(230,178,186);
     public static Color buttonColor01 = new Color(255,240,190);

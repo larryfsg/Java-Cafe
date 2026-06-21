@@ -41,6 +41,9 @@ public class Main {
         MenuController menuController = new MenuController(javaCafeGUI, javaCafeInventory);
         menuController.addProductsToMenu();
  
+        // Window is only visible after every product has been added to menu and inventory
+        javaCafeGUI.setVisible(true);
+
 
         // Creating Order Controller --------------------------------------------------------------
         // It represents the business logic of orders (removing orders, changing quantity, and handling order confirmations)

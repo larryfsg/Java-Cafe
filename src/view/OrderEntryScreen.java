@@ -26,7 +26,7 @@ public class OrderEntryScreen extends JPanel{
         }
 
 
-        this.setBackground(new Color(255, 235, 193));
+        this.setBackground(JavaCafeGUI.backgroundColor);
         this.setLayout(new BorderLayout());
         this.add(cart, BorderLayout.EAST);
         this.add(menu, BorderLayout.CENTER);
