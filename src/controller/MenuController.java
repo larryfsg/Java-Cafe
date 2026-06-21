@@ -14,7 +14,9 @@ import view.Menu;
 import view.PickSize;
 
 public class MenuController implements ActionListener{
+   // Needs order controller for when user tries to add coffee to cart
    private OrderController orderController;
+
    private JavaCafeGUI javaCafeGUI;
    private Menu menu;
    private Inventory inventory;
@@ -26,13 +28,14 @@ public class MenuController implements ActionListener{
       this.inventory = inputInventory;
    }
     
-   // Adds all products to menu
+   // Loads all products from inventory to menu
    public void addProductsToMenu(){
       String coffeeName;
       String coffeeImgPath;
 
       // For each coffee in inventory
       for (Coffee coffee : inventory.getProducts()){
+
          coffeeName = coffee.getName();
          coffeeImgPath = coffee.getImgPath();
 
@@ -45,17 +48,21 @@ public class MenuController implements ActionListener{
    @Override 
     public void actionPerformed(ActionEvent e){
 		String coffeeName = e.getActionCommand();
+
       PickSize pickSizePopUp;
 
       Coffee coffee = inventory.getCoffee(coffeeName);
       if (coffee != null){ // if coffee is found in inventory
 
+         // Formatting coffee's prices for view (pickSizePopUp)
          String sPrice = String.format("R$%.2f", coffee.getPrice('S'));
          String mPrice = String.format("R$%.2f", coffee.getPrice('M'));
          String lPrice = String.format("R$%.2f", coffee.getPrice('L'));
          pickSizePopUp = new PickSize(javaCafeGUI, coffee.getName(), coffee.getIngredients(), sPrice, mPrice, lPrice);
       
-         if (pickSizePopUp.getStatus()){
+         // When pickSize is closed:
+         if (pickSizePopUp.getStatus()){ // If size was selected
+
             char size = pickSizePopUp.getSelectedSize();
 
             // Tries to add coffee to cart
@@ -63,13 +70,14 @@ public class MenuController implements ActionListener{
                orderController.addOrderToCart(coffeeName, size);  
             
             } catch(OutOfStockException ex){
-
-               JOptionPane.showMessageDialog(menu, ex.getMessage());
+               JOptionPane.showMessageDialog(menu, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
+
          }
       }
    }
 
+   // Sets order controller
    public void setOrderController(OrderController oc){
       this.orderController = oc;
    }

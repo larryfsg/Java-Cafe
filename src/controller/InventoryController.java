@@ -14,18 +14,22 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 
 public class InventoryController implements ActionListener{
+    // Needs order controller to have access to the orders in cart
+    private OrderController orderController;
+
     private JavaCafeGUI javaCafeGUI;
     private InventoryScreen inventoryScreen;
     private Inventory inventory;
 
-    private OrderController orderController;
 
+    // Constructor
     public InventoryController(JavaCafeGUI javaCafe, Inventory invent){
         this.javaCafeGUI = javaCafe;
         this.inventoryScreen = javaCafe.getInventoryScreen();
         this.inventory = invent;
     }
 
+    // Loads all inventory products into inventory screen
     public void addProductsToInventory(){
         String coffeeName;
         String imgPath;
@@ -42,10 +46,6 @@ public class InventoryController implements ActionListener{
 
             inventoryScreen.addProduct(coffeeName, imgPath, sQtd, mQtd, lQtd, this);
         }
-    }
-
-    public void setOrderController(OrderController oc){
-        this.orderController = oc;
     }
 
     // When an update button is hit in inventory screen
@@ -71,7 +71,7 @@ public class InventoryController implements ActionListener{
         boolean mInCart = orderController.isAlreadyInCart(coffeeName, 'M');
         boolean lInCart = orderController.isAlreadyInCart(coffeeName, 'L');
         
-
+        // Blocks changes to stock levels if the user attempts to modify a product in the cart
         if ((sText.length()> 0 && sInCart) ||(mText.length()> 0 && mInCart) || (lText.length()> 0 && lInCart)){
             JOptionPane.showMessageDialog(
                 null,
@@ -82,8 +82,7 @@ public class InventoryController implements ActionListener{
             return;
         }
 
-
-        // If a field has an invalid value, show a message
+        // If a field has an invalid value, displays an error message
         if ((sText.length() > 0 && s == null) || (mText.length() > 0 && m == null) ||
             (lText.length() > 0 && l == null)){
 
@@ -96,8 +95,7 @@ public class InventoryController implements ActionListener{
             return;
         }
 
-
-        // If the field was not filled, do not change inventory for that size
+        // If the field was not filled, does not change inventory level for that size
         if (s == null) s = inventory.getCoffee(coffeeName).getStock('S');
         if (m == null) m = inventory.getCoffee(coffeeName).getStock('M');
         if (l == null) l = inventory.getCoffee(coffeeName).getStock('L');
@@ -105,9 +103,9 @@ public class InventoryController implements ActionListener{
         // When the change is confirmed
         if(dialog.isConfirmed()){
             try {
-                inventory.updateStock(coffeeName, s, m, l);
-                inventoryScreen.updateCoffeeButton(coffeeName, s, m, l);
-                InventoryCSVSaver.save(inventory, "coffees.csv");
+                inventory.updateStock(coffeeName, s, m, l);                 // update in model
+                inventoryScreen.updateCoffeeButton(coffeeName, s, m, l);    // update in view
+                InventoryCSVSaver.save(inventory, "coffees.csv");  // update in local file
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }
@@ -143,5 +141,9 @@ public class InventoryController implements ActionListener{
         }
     }
 
+    // Sets order controller
+    public void setOrderController(OrderController oc){
+        this.orderController = oc;
+    }
 
 }

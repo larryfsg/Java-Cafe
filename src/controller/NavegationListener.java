@@ -5,10 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 
-// import model.*;
-// import view.*;
-
-
+// On button click, switch between application's different screend
 public class NavegationListener  implements ActionListener{
     private CardLayout layoutManager;
     private String screenName;
