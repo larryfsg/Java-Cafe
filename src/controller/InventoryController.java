@@ -18,6 +18,8 @@ public class InventoryController implements ActionListener{
     private InventoryScreen inventoryScreen;
     private Inventory inventory;
 
+    private OrderController orderController;
+
     public InventoryController(JavaCafeGUI javaCafe, Inventory invent){
         this.javaCafeGUI = javaCafe;
         this.inventoryScreen = javaCafe.getInventoryScreen();
@@ -42,6 +44,10 @@ public class InventoryController implements ActionListener{
         }
     }
 
+    public void setOrderController(OrderController oc){
+        this.orderController = oc;
+    }
+
     // When an update button is hit in inventory screen
     @Override
     public void actionPerformed(ActionEvent e){
@@ -61,6 +67,22 @@ public class InventoryController implements ActionListener{
         Integer m = parseOrNull(mText);
         Integer l = parseOrNull(lText);
     
+        boolean sInCart = orderController.isAlreadyInCart(coffeeName, 'S');
+        boolean mInCart = orderController.isAlreadyInCart(coffeeName, 'M');
+        boolean lInCart = orderController.isAlreadyInCart(coffeeName, 'L');
+        
+
+        if ((sText.length()> 0 && sInCart) ||(mText.length()> 0 && mInCart) || (lText.length()> 0 && lInCart)){
+            JOptionPane.showMessageDialog(
+                null,
+                "One of the products you want to update is in the cart. Remove it to proceed.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+
         // If a field has an invalid value, show a message
         if ((sText.length() > 0 && s == null) || (mText.length() > 0 && m == null) ||
             (lText.length() > 0 && l == null)){
@@ -73,6 +95,7 @@ public class InventoryController implements ActionListener{
             );
             return;
         }
+
 
         // If the field was not filled, do not change inventory for that size
         if (s == null) s = inventory.getCoffee(coffeeName).getStock('S');

@@ -10,7 +10,6 @@ public class OrderController {
     private ShoppingCart cart;
     private ArrayList<Order> orders;
     private ArrayList<OrderJPanel> visualOrders;
-    private int nextId;
     private double totalPrice;
     private Inventory inventory;
 
@@ -19,7 +18,6 @@ public class OrderController {
         this.inventory = invent;
         this.orders = new ArrayList<>();
         this.visualOrders = new ArrayList<>();
-        this.nextId = 0;
         this.totalPrice = 0;
     }
 
@@ -56,9 +54,9 @@ public class OrderController {
             } 
 
 
-            order = new Order(nextId, coffee, size);
+            order = new Order(coffee, size);
             orders.add(order);
-            this.nextId = nextId + 1;
+
 
             String orderSize;
             String orderPrice = String.format("R$%.2f", order.getPrice());
@@ -106,7 +104,7 @@ public class OrderController {
 
         for (Order order : orders){
             if (order.getCoffeeName().equals(coffeeName) && (order.getSize() == size)){
-                return order.getId();
+                return orders.indexOf(order);
             }
         }
 

@@ -22,7 +22,7 @@ public class Main {
 
         OrderController orderController = new OrderController(javaCafeGUI.getCart(), javaCafeInventory);
         menuController.setOrderController(orderController);
-
+        inventoryController.setOrderController(orderController);
     }
 
 

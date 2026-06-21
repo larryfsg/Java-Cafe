@@ -81,12 +81,12 @@ public class UpdateStockDialog extends JDialog {
         // Confirm and Cancel Buttons
         confirmButton.addActionListener(e -> {
             confirmed = true;
-            setVisible(false);
+            dispose();
         });
 
         cancelButton.addActionListener(e -> {
             confirmed = false;
-            setVisible(false);
+            dispose();
         });
 
         pack();
