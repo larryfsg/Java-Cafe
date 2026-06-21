@@ -10,7 +10,6 @@ public class OrderController {
     private ShoppingCart cart;
     private ArrayList<Order> orders;
     private ArrayList<OrderJPanel> visualOrders;
-    private double totalPrice;
     private Inventory inventory;
 
     public OrderController(ShoppingCart shoppingCart, Inventory invent){
@@ -18,7 +17,6 @@ public class OrderController {
         this.inventory = invent;
         this.orders = new ArrayList<>();
         this.visualOrders = new ArrayList<>();
-        this.totalPrice = 0;
     }
 
     // This method creates an order object and adds order to GUI
@@ -77,18 +75,18 @@ public class OrderController {
                 orders.remove(order);           // Removes order object (model)
                 visualOrders.remove(visualOrder);
                 cart.removeOrder(visualOrder);
-                calculateTotalPrice();
+                calculatePrices();
             });
 
             // Action listener for quantity change
             visualOrder.onQuantityChange(e -> {
                 int newQtd = visualOrder.getOrderQuantity();
                 changeOrderQtd(newQtd, order, visualOrder);
-                calculateTotalPrice();
+                calculatePrices();
             });
         }
 
-        calculateTotalPrice();
+        calculatePrices();
     }
 
     public boolean isAlreadyInCart(String coffeeName, char size){
@@ -117,14 +115,24 @@ public class OrderController {
         visualOrder.changeQtd(newQtd, newPrice);
     }
 
-    public void calculateTotalPrice(){
-        totalPrice = 0;
+    public void calculatePrices(){
+
+        double subTotal = 0;
+        double totalPrice;
+        double tax;
+
         for (Order order : orders){
-            totalPrice = totalPrice + (order.getPrice());
+            subTotal = subTotal + (order.getPrice());
         }
 
-        String price = String.format("Total: R$%.2f", totalPrice);
-        cart.setTotalPrice(price);
+        tax = (subTotal * 0.10);
+        totalPrice = subTotal + tax;
+
+        String subTotalText = String.format("Subtotal: R$%.2f", subTotal);
+        String taxesText = String.format("Taxes (10%%): R$%.2f", tax);
+        String totalPriceText = String.format("Total: R$%.2f", totalPrice);
+
+        cart.setPrices(subTotalText, taxesText, totalPriceText);
     }
 
 }

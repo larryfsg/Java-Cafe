@@ -9,6 +9,8 @@ public class ShoppingCart extends JPanel {
     private JLabel yourCart;
     private JPanel yourOrders;
     private JScrollPane scroller;
+    private JLabel subTotal;
+    private JLabel taxes;
     private JLabel totalPrice;
     private JButton buyButton;
     private JPanel buyWrapper;
@@ -23,6 +25,8 @@ public class ShoppingCart extends JPanel {
         // Creating its components ---------------------------------------
         yourCart = JavaCafeGUI.H1Text("Your Cart");
         totalPrice = JavaCafeGUI.H1Text("Total: R$00.00");
+        subTotal = JavaCafeGUI.smallerText("Subtotal: R$00.00");
+        taxes = JavaCafeGUI.smallerText("Tax (10%): R$00.00");
         buyButton = createBuyButton();
         
         // Setting order's wrapper
@@ -40,6 +44,8 @@ public class ShoppingCart extends JPanel {
         buyWrapper = new JPanel();
         buyWrapper.setLayout(new BoxLayout(buyWrapper, BoxLayout.Y_AXIS));
         buyWrapper.setOpaque(false);
+        buyWrapper.add(subTotal);
+        buyWrapper.add(taxes);
         buyWrapper.add(totalPrice);
         buyWrapper.add(buyButton);
 
@@ -69,8 +75,10 @@ public class ShoppingCart extends JPanel {
         this.yourOrders.repaint();
     }
 
-    public void setTotalPrice(String price){
-        this.totalPrice.setText(price);
+    public void setPrices(String subTotalText, String taxText, String totalText){
+        this.subTotal.setText(subTotalText);
+        this.taxes.setText(taxText);
+        this.totalPrice.setText(totalText);
     }
 
     private static JButton createBuyButton(){
