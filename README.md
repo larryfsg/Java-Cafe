@@ -14,7 +14,7 @@ This project uses:
 
 **Required:**<br>
 
-* Java Developmet Kit (JDK) 8+ or superior<br>
+* Java Development Kit (JDK) 8+ or superior<br>
 
 **Clone the repository with:**<br>
 ```
@@ -27,7 +27,7 @@ chmod +x run.sh
 ./run.sh
 ```
 
-<br> **Option B:** Compile and run manually in the Java-Cafe's root directory<br>
+<br> **Option B:** Compile and run from the project root directory<br>
 ```
 javac -cp "lib/flatlaf-3.7.1.jar" -d bin $(find src -name "*.java")
 cp -r src/view/images bin/view/
