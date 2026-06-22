@@ -1,2 +1,66 @@
-# Java-Cafe
-Coffee shop point of sale system for Object Oriented Programming discipline
+# Java-Cafe ☕
+A POS system for a coffee shop developed for Object-Oriented Programming course, based on the MVC architecture and OOP principles.<br><br>
+
+## ꩜ The application
+* The application manages orders and tracks inventory. To ensure data persistence, it records inventory levels and sales in local files during runtime. The recorded data is also loaded into the system every time it runs.<br><br>
+* The system also provides a clean GUI with two distinc screens that allows the user to **process transactions** and **monitor and update stock levels**. <br><br>
+
+## ꩜ How to run it
+After cloning the repository, you can run the application by:<br>
+
+**[LINUX] Option A:** Using .sh file<br>
+```
+chmod +x run.sh
+./run.sh
+```
+
+<br> **Option B:** Using JDK Compiler <br>
+```
+javac -cp "lib/flatlaf-3.7.1.jar" -d bin $(find src -name "*.java") cp -r src/view/images bin/view/
+java -cp "lib/flatlaf-3.7.1.jar:bin" Main
+```
+
+## ꩜ Pictures
+Order entry screen <br>
+<table>
+  <tr>
+    <!-- Left Column: Big Image spanning 2 rows -->
+    <td rowspan="2" align="center" valign="middle">
+      <img width="650" alt="Order entry screen" src="https://github.com/user-attachments/assets/47b41fe6-f780-435c-8bea-860229e2f2e0" />
+    </td>
+    <!-- Right Column, Row 1: First Small Image -->
+    <td align="center" valign="middle">
+      <img width="350" alt="Adding order to cart" src="https://github.com/user-attachments/assets/8b300dc9-d913-44f1-8d21-1e62d44a843a" />
+    </td>
+  </tr>
+  <tr>
+    <!-- Right Column, Row 2: Second Small Image -->
+    <td align="center" valign="middle">
+      <img width="350" alt="Displaying order receipt" src="https://github.com/user-attachments/assets/3d4a9f4f-a5da-4550-9c9f-1264f082f590" />
+    </td>
+  </tr>
+</table>
+<br>
+Inventory screen and sales summary <br>
+<table>
+  <tr>
+    <!-- Left Column: Big Image spanning 2 rows -->
+    <td rowspan="2" align="center" valign="middle">
+      <img width="650" alt="Order entry screen" src="https://github.com/user-attachments/assets/6ca205c5-ec22-4143-bac0-21c142cdabcc" />
+    </td>
+    <!-- Right Column, Row 1: First Small Image -->
+    <td align="center" valign="middle">
+      <img width="350" alt="Adding order to cart" src="https://github.com/user-attachments/assets/e118144c-3359-409a-bc81-bbd24325886d" />
+    </td>
+  </tr>
+  <tr>
+    <!-- Right Column, Row 2: Second Small Image -->
+    <td align="center" valign="middle">
+      <img width="350" alt="Displaying order receipt" src="https://github.com/user-attachments/assets/ca33ad9e-36b9-4196-887a-17fcd5c88a38" />
+    </td>
+  </tr>
+</table>
+
+## ꩜ Developers
+
+
