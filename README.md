@@ -62,5 +62,5 @@ Inventory screen and sales summary <br>
 </table>
 
 ## ꩜ Developers
-
-
+ ✿ [Larry Felipe](https://github.com/larryfsg/) <br>
+ ✿ [Sarah Meicy](https://github.com/sarehicy) 
