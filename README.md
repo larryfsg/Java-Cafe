@@ -5,16 +5,29 @@ A POS system for a coffee shop developed for Object-Oriented Programming course,
 * The application manages orders and tracks inventory. To ensure data persistence, it records inventory levels and sales in local files during runtime. The recorded data is also loaded into the system every time it runs.<br><br>
 * The system also provides a clean GUI with two distinc screens that allows the user to **process transactions** and **monitor and update stock levels**. <br><br>
 
-## ꩜ How to run it
-After cloning the repository, you can run the application by:<br>
+## ꩜ Dependencies
+This project uses:
+* FlatLaf (modern look and feel for Swing)
+  * JAR file included in lib/flatlaf-3.7.1.jar <br><br>
 
-**[LINUX] Option A:** Using .sh file<br>
+## ꩜ How to run it
+
+**Required:**<br>
+
+* Java Developmet Kit (JDK) 8+ or superior<br>
+
+**Clone the repository with:**<br>
+```
+git clone https://github.com/larryfsg/Java-Cafe
+```
+
+<br>**[LINUX]<br> Option A:** Using .sh file<br>
 ```
 chmod +x run.sh
 ./run.sh
 ```
 
-<br> **Option B:** Using JDK Compiler <br>
+<br> **Option B:** Compile and run manually in the Java-Cafe's root directory<br>
 ```
 javac -cp "lib/flatlaf-3.7.1.jar" -d bin $(find src -name "*.java") cp -r src/view/images bin/view/
 java -cp "lib/flatlaf-3.7.1.jar:bin" Main
