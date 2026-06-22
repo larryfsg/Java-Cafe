@@ -29,7 +29,8 @@ chmod +x run.sh
 
 <br> **Option B:** Compile and run manually in the Java-Cafe's root directory<br>
 ```
-javac -cp "lib/flatlaf-3.7.1.jar" -d bin $(find src -name "*.java") cp -r src/view/images bin/view/
+javac -cp "lib/flatlaf-3.7.1.jar" -d bin $(find src -name "*.java")
+cp -r src/view/images bin/view/
 java -cp "lib/flatlaf-3.7.1.jar:bin" Main
 ```
 
