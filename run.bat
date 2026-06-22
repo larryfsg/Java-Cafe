@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-REM move to project root (pasta onde está o .bat)
+REM move to project root (pasta onde estÃ¡ o .bat)
 cd /d %~dp0
 
 echo Cleaning old classes...
@@ -52,6 +52,6 @@ echo Copying images...
 xcopy /E /I /Y src\view\images bin\view\images >nul
 
 echo Running program...
-java -cp "lib/flatlaf-3.7.1.jar;bin" Main
+start "" javaw -cp "lib/flatlaf-3.7.1.jar;bin" Main
 
-pause
+exit
