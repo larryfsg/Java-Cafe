@@ -21,7 +21,10 @@ This project uses:
 git clone https://github.com/larryfsg/Java-Cafe
 ```
 
-<br>**[LINUX]<br> Option A:** Using .sh file<br>
+<br>**[WINDOWS]<br> Option A:** Using run.bat file<br>
+* Start the application running the provided run.bat file
+
+<br>**[LINUX]<br> Option A:** Using run.sh file<br>
 ```
 chmod +x run.sh
 ./run.sh
