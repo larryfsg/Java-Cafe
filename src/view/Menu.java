@@ -11,7 +11,7 @@ public class Menu extends JPanel{
     
     public Menu(){
         this.setOpaque(false);
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 10));
+        this.setLayout(new WrapLayout(FlowLayout.LEFT,15, 15));
     }
 
     // Creates and adds coffee button to menu

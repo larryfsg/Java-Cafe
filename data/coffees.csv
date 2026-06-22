@@ -1,11 +1,11 @@
 Espresso,Coffee beans. Hot water,9,0,6,3.5,5.0,7.0
 Capuccino,Espresso. Milk. Cocoa powder,15,11,3,4.0,5.5,8.0
-Macchiato,Espresso. Milk. Caramel,14,12,8,4.5,6.0,9.0
-Latte,Espresso. Milk,18,15,12,4.0,5.5,7.5
+Macchiato,Espresso. Milk. Caramel,74,12,8,4.5,6.0,9.0
+Latte,Espresso. Milk,18,13,31,4.0,5.5,7.5
 Americano,Espresso. Cold Water. Ice,12,15,8,4.0,5.5,7.5
 Affogato,Espresso. Vanilla Ice Cream,9,5,8,6.0,8.0,10.0
 Mocha,Espresso. Milk. Chocolate,15,6,12,5.0,7.5,9.0
-Hot Chocolate,Milk. Chocolate. Vanilla,15,4,10,5.0,7.5,9.0
+Hot Chocolate,Milk. Chocolate. Vanilla,15,3,10,5.0,7.5,9.0
 Black Tea,Hot Water. Oxidized camellia leaves,23,17,13,4.0,5.5,8.0
 Green Tea,Hot Water. Unoxidized camellia leaves,18,18,13,4.0,5.5,8.0
 Oolong Tea,Hot Water. Partially oxidized camellia leaves,16,15,10,5.0,7.5,9.0

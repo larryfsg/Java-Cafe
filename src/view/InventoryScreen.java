@@ -26,7 +26,7 @@ public class InventoryScreen extends JPanel{
         }
         
         this.setBackground(JavaCafeGUI.backgroundColor);
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 10));
+        this.setLayout(new WrapLayout(FlowLayout.LEFT,15, 15));
     }
 
     //adds coffee to the Inventory

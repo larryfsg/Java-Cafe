@@ -18,6 +18,7 @@ public class JavaCafeGUI extends JFrame{
     private CardLayout cardLayout = new CardLayout(); // Content pane's layout manager
     private OrderEntryScreen orderScreen = new OrderEntryScreen();
     private InventoryScreen inventoryScreen = new InventoryScreen();
+    private JScrollPane inventoryScroll = new JScrollPane(inventoryScreen);
     // inventory screen
 
     // Constructor
@@ -32,11 +33,13 @@ public class JavaCafeGUI extends JFrame{
 		setSize(1200, 780);		        // Window's dimensions (width, height)
 		setLocationRelativeTo(null);	// Positions window in the center of the screen
 
+        inventoryScroll.setOpaque(false);
+        inventoryScroll.getViewport().setOpaque(false);
 
         //contentPane's arrange
         contentPane.setLayout(cardLayout);
         contentPane.add(orderScreen, "orderScreen");
-        contentPane.add(inventoryScreen, "inventoryScreen");
+        contentPane.add(inventoryScroll, "inventoryScreen");
 
         addNavegationListener();
 

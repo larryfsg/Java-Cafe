@@ -11,6 +11,7 @@ import javax.swing.*;
 public class OrderEntryScreen extends JPanel{
     
     private Menu menu = new Menu(); // "wrapper" for the menu items (coffees)
+    private JScrollPane menuScroll = new JScrollPane(menu);
     private ShoppingCart cart = new ShoppingCart(); // will exhibit the orders
     private Image backgroundImage;
 
@@ -25,11 +26,13 @@ public class OrderEntryScreen extends JPanel{
             e.printStackTrace();
         }
 
+        menuScroll.setOpaque(false);
+        menuScroll.getViewport().setOpaque(false);
 
         this.setBackground(JavaCafeGUI.backgroundColor);
         this.setLayout(new BorderLayout());
         this.add(cart, BorderLayout.EAST);
-        this.add(menu, BorderLayout.CENTER);
+        this.add(menuScroll, BorderLayout.CENTER);
     }
 
     public Menu getMenu(){

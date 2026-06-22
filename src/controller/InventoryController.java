@@ -105,7 +105,7 @@ public class InventoryController implements ActionListener{
             try {
                 inventory.updateStock(coffeeName, s, m, l);                 // update in model
                 inventoryScreen.updateCoffeeButton(coffeeName, s, m, l);    // update in view
-                InventoryCSVSaver.save(inventory, "coffees.csv");  // update in local file
+                InventoryCSVSaver.save(inventory, "../data/coffees.csv");  // update in local file
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }

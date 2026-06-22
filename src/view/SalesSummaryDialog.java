@@ -23,8 +23,8 @@ public class SalesSummaryDialog extends JDialog {
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
 
-        totalTransactions = SalesReportReader.readTransactions("sales.csv");
-        totalRevenues = SalesReportReader.readRevenue("sales.csv");
+        totalTransactions = SalesReportReader.readTransactions("../data/sales.csv");
+        totalRevenues = SalesReportReader.readRevenue("../data/sales.csv");
 
         transactions = JavaCafeGUI.H3Text("Total Transactions: " + totalTransactions);
         revenues = JavaCafeGUI.H3Text("Total Revenue: " + totalRevenues);

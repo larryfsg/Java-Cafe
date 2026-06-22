@@ -166,7 +166,7 @@ public class OrderController {
 
 
         // Updating sales file -------------------------------------------
-        SalesReportUpdater.update(orders, "sales.csv");
+        SalesReportUpdater.update(orders, "../data/sales.csv");
 
         // Emptying array lists  -----------------------------------------
         orders.clear();
