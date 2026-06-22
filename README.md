@@ -3,7 +3,7 @@ A POS system for a coffee shop developed for Object-Oriented Programming course,
 
 ## ꩜ The application
 * The application manages orders and tracks inventory. To ensure data persistence, it records inventory levels and sales in local files during runtime. The recorded data is also loaded into the system every time it runs.<br><br>
-* The system also provides a clean GUI with two distinc screens that allows the user to **process transactions** and **monitor and update stock levels**. <br><br>
+* The system also provides a clean GUI with two distinct screens that allows the user to **process transactions** and **monitor and update stock levels**. <br><br>
 
 ## ꩜ Dependencies
 This project uses:
