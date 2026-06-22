@@ -105,7 +105,7 @@ public class InventoryController implements ActionListener{
             try {
                 inventory.updateStock(coffeeName, s, m, l);                 // update in model
                 inventoryScreen.updateCoffeeButton(coffeeName, s, m, l);    // update in view
-                InventoryCSVSaver.save(inventory, "../data/coffees.csv");  // update in local file
+                InventoryCSVSaver.save(inventory, "data/coffees.csv");  // update in local file
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }
@@ -121,7 +121,7 @@ public class InventoryController implements ActionListener{
             inventory.decreaseStockQtd(coffee, size, qtd);
 
             inventoryScreen.updateCoffeeButton(coffeeName, coffee.getStock('S'), coffee.getStock('M'), coffee.getStock('L'));
-            InventoryCSVSaver.save(inventory, "coffees.csv");
+            InventoryCSVSaver.save(inventory, "data/coffees.csv");
         }
         catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());

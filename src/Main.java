@@ -21,7 +21,7 @@ public class Main {
         UIManager.put("Button.background", new Color(197, 153, 182));
 
         // Loading inventory from csv file --------------------------------------------------------
-        Inventory javaCafeInventory = InventoryCSVLoader.load("../data/coffees.csv");
+        Inventory javaCafeInventory = InventoryCSVLoader.load("data/coffees.csv");
         if (javaCafeInventory == null){
             return;
         }

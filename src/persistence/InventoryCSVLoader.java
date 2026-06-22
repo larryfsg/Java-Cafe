@@ -53,7 +53,7 @@ public class InventoryCSVLoader {
 
         // Verify IOException errors
         } catch (IOException e) {
-            System.out.println("Falha no processamento do arquivo");
+            System.out.println("Falha no processamento do arquivo ao ler coffees");
             return null;
         }
         return inventory;

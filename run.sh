@@ -1,17 +1,19 @@
 #!/bin/bash
 
-# ir para raiz do projeto (garante consistência)
+# moving to project root
 cd "$(dirname "$0")"
 
-# limpar classes antigas
+# cleaning old classes
 find . -name "*.class" -delete
 
+# create a bin directory
 mkdir -p bin
 
-# compilar tudo dentro de src corretamente
+# compiling everything
 javac -cp "lib/flatlaf-3.7.1.jar" -d bin $(find src -name "*.java")
 
+# copying images to bin directory
 cp -r src/view/images bin/view/
 
-# rodar Main (sem package)
+# running program
 java -cp "lib/flatlaf-3.7.1.jar:bin" Main
