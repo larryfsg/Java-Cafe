@@ -67,21 +67,11 @@ public class InventoryController implements ActionListener{
         Integer m = parseOrNull(mText);
         Integer l = parseOrNull(lText);
     
+        // This is to check if the affected sizes have orders in cart
         boolean sInCart = orderController.isAlreadyInCart(coffeeName, 'S');
         boolean mInCart = orderController.isAlreadyInCart(coffeeName, 'M');
         boolean lInCart = orderController.isAlreadyInCart(coffeeName, 'L');
         
-        // Blocks changes to stock levels if the user attempts to modify a product in the cart
-        if ((sText.length()> 0 && sInCart) ||(mText.length()> 0 && mInCart) || (lText.length()> 0 && lInCart)){
-            JOptionPane.showMessageDialog(
-                null,
-                "One of the products you want to update is in the cart. Remove it to proceed.",
-                "Error",
-                JOptionPane.ERROR_MESSAGE
-            );
-            return;
-        }
-
         // If a field has a invalid value, displays an error message
         if ((sText.length() > 0 && s == null) || (mText.length() > 0 && m == null) ||
             (lText.length() > 0 && l == null)){
@@ -110,6 +100,12 @@ public class InventoryController implements ActionListener{
             try {
                 inventory.updateStock(coffeeName, s, m, l);                 // update in model
                 inventoryScreen.updateCoffeeButton(coffeeName, s, m, l);    // update in view
+
+                // This changes the max qtd a user can set for their existing order because the inventory levels might have been increased
+                if (sInCart) orderController.changeOrderMaxQtd(s, coffeeName, 'S');
+                if (mInCart) orderController.changeOrderMaxQtd(m, coffeeName, 'M');
+                if (lInCart) orderController.changeOrderMaxQtd(l, coffeeName, 'L');
+
                 InventoryCSVSaver.save(inventory, "data/coffees.csv");  // update in local file
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());

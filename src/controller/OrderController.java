@@ -126,6 +126,12 @@ public class OrderController {
         visualOrder.changeQtd(newQtd, newPrice);
     }
 
+    // This method asks the view to change the max value of the JSpinner that takes the order qtd
+    public void changeOrderMaxQtd(int newQtd, String coffeeName, char size){
+        int index = getOrderId(coffeeName, size);
+        visualOrders.get(index).setMaxQtd(newQtd);
+    }
+
     // This method makes a purchase removing order from model and view and reducing stock
     private void makePurchase(){
         
