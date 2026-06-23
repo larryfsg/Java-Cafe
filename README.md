@@ -5,6 +5,13 @@ A POS system for a coffee shop developed for Object-Oriented Programming course,
 * The application manages orders and tracks inventory. To ensure data persistence, it records inventory levels and sales in local files during runtime. The recorded data is also loaded into the system every time it runs.<br><br>
 * The system also provides a clean GUI with two distinct screens that allows the user to **process transactions** and **monitor and update stock levels**. <br><br>
 
+## ꩜ Data Persistence
+The application loads data at startup, and saves it whenever its necessary. The data files and their respective fields are listed below:<br><br>
+* **coffees.csv** <br>
+Coffee Name, Ingredients, Small Stock, Medium Stock, Large Stock, Small Price, Medium Price, Large Price<br><br>
+* **sales.csv** <br>
+Quantity, Coffee Name, Size, Unitary Price, Total Price<br><br>
+
 ## ꩜ Dependencies
 This project uses:
 * FlatLaf (modern look and feel for Swing)
