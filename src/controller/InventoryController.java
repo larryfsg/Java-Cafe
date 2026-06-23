@@ -82,7 +82,7 @@ public class InventoryController implements ActionListener{
             return;
         }
 
-        // If a field has an invalid value, displays an error message
+        // If a field has a invalid value, displays an error message
         if ((sText.length() > 0 && s == null) || (mText.length() > 0 && m == null) ||
             (lText.length() > 0 && l == null)){
 
@@ -135,7 +135,11 @@ public class InventoryController implements ActionListener{
             return null;
         }
         try {
-            return Integer.parseInt(text.trim());
+            int value = Integer.parseInt(text.trim());
+
+            if (value <0){ return null;}
+
+            return value;
         } catch (NumberFormatException e) {
             return null;
         }
