@@ -71,7 +71,7 @@ public class CoffeeStockButton extends JPanel {
         stockL.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Update Button
-        updateButton = new JButton("Update");
+        updateButton = new JButton("Add");
         updateButton.setBackground(JavaCafeGUI.buttonColor01);
         updateButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 

@@ -97,8 +97,13 @@ public class InventoryController implements ActionListener{
 
         // If the field was not filled, does not change inventory level for that size
         if (s == null) s = inventory.getCoffee(coffeeName).getStock('S');
+        else s = s + inventory.getCoffee(coffeeName).getStock('S');
+
         if (m == null) m = inventory.getCoffee(coffeeName).getStock('M');
+        else m = m + inventory.getCoffee(coffeeName).getStock('M');
+
         if (l == null) l = inventory.getCoffee(coffeeName).getStock('L');
+        else l = l + inventory.getCoffee(coffeeName).getStock('L');
 
         // When the change is confirmed
         if(dialog.isConfirmed()){
