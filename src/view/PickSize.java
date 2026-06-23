@@ -14,8 +14,9 @@ public class PickSize extends JDialog {
     private JButton large;
     private JButton cancel;
 
-    private char selectedSize;
-    private boolean selected = false;
+    // this attributes are used for controll
+    private char selectedSize;          // informs selected size
+    private boolean selected = false;   // informs if a size was selected
 
 
     public PickSize(JFrame parent, String name, String desc, String smallPrice, String mediumPrice, String largePrice){
@@ -68,13 +69,14 @@ public class PickSize extends JDialog {
         this.setVisible(true);
     }
 
-    //Action listeners
+    // This method is for when the user selects a coffee size
     private void onButtonClick(char size){
         selectedSize = size;
         selected = true;
         this.dispose();
     }
 
+    // Getter methods
     public char getSelectedSize(){
         return this.selectedSize;
     }
@@ -84,7 +86,7 @@ public class PickSize extends JDialog {
     }
 
 
-    // Helper method
+    // Helper method that creates custom buttons
     private static JButton pickSizeButton(String text){
         JButton button = new JButton(text);
 

@@ -83,6 +83,8 @@ public class OrderJPanel extends JPanel {
         this.add(remove, gbc);
     }
 
+
+    // Method that changes the quantity and total price of the order
     public void changeQtd(int newQtd, String newPrice){
         this.qtd.setValue(newQtd);
         this.price.setText(newPrice);
@@ -91,20 +93,22 @@ public class OrderJPanel extends JPanel {
         this.repaint();
     }
 
+    // Method that changes the max value the user can set for qtd
     public void setMaxQtd(int maxQtd){
         ((SpinnerNumberModel) qtd.getModel()).setMaximum(maxQtd);
     }
 
-
-    // This method accept a listener that tells what it need to do when 'remove' button is clicked
+    // This method accept a listener that tells what the JPanel needs to do when 'remove' button is clicked
     public void onRemoveAction(ActionListener listener){
         this.remove.addActionListener(listener);
     }
 
+    // This method accept a listener that tells what the JPanel needs to do when the JSpinner value is changed
     public void onQuantityChange(ChangeListener listener){
         this.qtd.addChangeListener(listener);
     }
 
+    // Getter method
     public int getOrderQuantity(){
         return (Integer) this.qtd.getValue();
     }

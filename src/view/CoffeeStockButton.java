@@ -18,11 +18,7 @@ public class CoffeeStockButton extends JPanel {
     private JLabel stockL;
     private JButton updateButton;
 
-    public CoffeeStockButton(String coffeeName, String imgPath,
-                             int s,
-                             int m,
-                             int l,
-                            ActionListener inventoryController) {
+    public CoffeeStockButton(String coffeeName, String imgPath, int s, int m, int l, ActionListener inventoryController) {
 
         this.coffeeName = coffeeName;
 

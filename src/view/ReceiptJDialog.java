@@ -19,7 +19,7 @@ public class ReceiptJDialog extends JDialog {
         
         
         // Creating its components ---------------------------------------
-        javaCafe = JavaCafeGUI.H1Text("Java Café");
+        javaCafe = JavaCafeGUI.H1Text("Java Cafe");
         items = new JTextArea(receiptText);
         items.setEditable(false);
         

@@ -15,11 +15,12 @@ public class SalesSummaryDialog extends JDialog {
     public SalesSummaryDialog(JFrame parent){
         super(parent, "Sales Summary", true);
 
-        // Setting window style
+        // Setting window looks ------------------------------------------
         setSize(260, 200);
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout(10, 10));
 
+        // Creating its components ---------------------------------------
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
 
@@ -29,6 +30,7 @@ public class SalesSummaryDialog extends JDialog {
         transactions = JavaCafeGUI.H3Text("Total Transactions: " + totalTransactions);
         revenues = JavaCafeGUI.H3Text("Total Revenue: " + totalRevenues);
 
+        // Adding components to itself -----------------------------------
         content.add(transactions);
         content.add(revenues);
 
@@ -36,6 +38,5 @@ public class SalesSummaryDialog extends JDialog {
         revenues.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         this.add(content, BorderLayout.CENTER);
-        //setVisible(true);
     }
 }

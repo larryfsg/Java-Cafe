@@ -23,12 +23,7 @@ public class JavaCafeGUI extends JFrame{
 
     // Constructor
     public JavaCafeGUI(){
-        // Inventory javaCafeInventory = InventoryCSVLoader.load("coffees.csv");
-        // loadInventoryIntoGUI LIG = new loadInventoryIntoGUI(this, javaCafeInventory);
-        // LIG.addCoffeToInventory();
-        // LIG.addCoffeeToMenu();
-
-        //setting window's appearence
+        //setting window's looks -----------------------------------------
 		setTitle("Java Cafe");	
 		setSize(1200, 780);		        // Window's dimensions (width, height)
 		setLocationRelativeTo(null);	// Positions window in the center of the screen
@@ -36,18 +31,17 @@ public class JavaCafeGUI extends JFrame{
         inventoryScroll.setOpaque(false);
         inventoryScroll.getViewport().setOpaque(false);
 
-        //contentPane's arrange
+        //Setting content pane -------------------------------------------
         contentPane.setLayout(cardLayout);
         contentPane.add(orderScreen, "orderScreen");
         contentPane.add(inventoryScroll, "inventoryScreen");
 
         addNavegationListener();
 
-        // Window's arrangement
+        // Window's arrangement ------------------------------------------
         setLayout(new BorderLayout());
         this.add(header, BorderLayout.NORTH);
         this.add(contentPane, BorderLayout.CENTER);
-
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -63,6 +57,7 @@ public class JavaCafeGUI extends JFrame{
         salesSummaryButton.addActionListener(new SalesSummaryListener(this));
     }
 
+    // getter methods
     public OrderEntryScreen getOrderScreen(){
         return this.orderScreen;
     }
@@ -78,7 +73,7 @@ public class JavaCafeGUI extends JFrame{
         return this.inventoryScreen;
     }
 
-    // Static methods / object used to set the application theme
+    // Static methods / attributes used to set the application's theme -----------------------
     public static Color darkestShade = new Color(54,42,66);
     public static Color darkShade = new Color(87,73,100);
     public static Color backgroundColor = new Color(255,247,243);
@@ -87,7 +82,7 @@ public class JavaCafeGUI extends JFrame{
     public static Color buttonColor01 = new Color(255,240,190);
     public static Color buttonColor02 = new Color(197,153,182);
 
-    // Creates a customized JLabel used for tittles
+
     public static JLabel H1Text(String text){
         JLabel h1Text = new JLabel(text);
 

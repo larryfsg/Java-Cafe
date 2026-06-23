@@ -11,23 +11,23 @@ public class Header extends JPanel {
     private JButton salesSummaryButton;
 
     public Header(){
-        // Customization
+        // Customizing ---------------------------------------------------
 		this.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5)); // Align elements to the left with 10px gap between elements
 		this.setBackground(JavaCafeGUI.darkShade);
 		this.setPreferredSize(new Dimension(0,40)); // setting height: 40px
 
-        
-        // Creating its buttons
+        // Creating its buttons ------------------------------------------
         orderEntryButton = createHeaderButton("Order Entry");
         inventoryButton = createHeaderButton("Inventory");
         salesSummaryButton = createHeaderButton("Sales Summary");
 
-        // Adding buttons to itself
+        // Adding buttons to itself --------------------------------------
         this.add(orderEntryButton);
         this.add(inventoryButton);
         this.add(salesSummaryButton);
     }
 
+    // getter methods
     public JButton getOrderEntryButton(){
         return orderEntryButton;
     }
@@ -40,7 +40,7 @@ public class Header extends JPanel {
         return salesSummaryButton;
     }
 
-    // é private pq só a classe header vai usar e é estático pq nao precisa de uma instancia da header
+    // helper method to create the custom header buttons
     private static JButton createHeaderButton(String text){
         JButton button = new JButton(text);
 

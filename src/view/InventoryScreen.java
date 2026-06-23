@@ -25,15 +25,16 @@ public class InventoryScreen extends JPanel{
             e.printStackTrace();
         }
         
+        // customizing
         this.setBackground(JavaCafeGUI.backgroundColor);
         this.setLayout(new WrapLayout(FlowLayout.LEFT,15, 15));
     }
 
-    //adds coffee to the Inventory
+    // Adds coffee to the inventory
     public void addProduct(String coffeeName, String imgPath, int sQtd, int mQtd, int lQtd, ActionListener inventoryController){
         CoffeeStockButton button = new CoffeeStockButton(coffeeName, imgPath, sQtd, mQtd, lQtd, inventoryController);
 
-        // Stores on the buttons list
+        // Stores in the buttons list
         buttons.add(button);
 
         this.add(button);

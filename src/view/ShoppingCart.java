@@ -77,16 +77,19 @@ public class ShoppingCart extends JPanel {
         this.yourOrders.repaint();
     }
 
+    // Method that sets subtotal, tax and total values
     public void setPrices(String subTotalText, String taxText, String totalText){
         this.subTotal.setText(subTotalText);
         this.taxes.setText(taxText);
         this.totalPrice.setText(totalText);
     }
 
+    // Method that adds listener for buy button
     public void onBuyAction(ActionListener listener){
         buyButton.addActionListener(listener);
     }
 
+    // Helper method that creates custom button
     private static JButton createBuyButton(){
         JButton button = new JButton("Buy");
         button.setBackground(JavaCafeGUI.buttonColor02);

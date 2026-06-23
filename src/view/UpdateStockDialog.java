@@ -22,12 +22,12 @@ public class UpdateStockDialog extends JDialog {
     public UpdateStockDialog(JFrame parent) {
         super(parent, "Update Stock", true);
 
-        // Setting window style
+        // Setting window style ------------------------------------------
         setSize(320, 200);
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout(10, 10));
 
-        // Fields
+        // Fields --------------------------------------------------------
         JPanel fieldsPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
@@ -65,7 +65,7 @@ public class UpdateStockDialog extends JDialog {
         largeField.setPreferredSize(new Dimension(120, 25));
         fieldsPanel.add(largeField, gbc);
 
-        // Buttons
+        // Buttons -------------------------------------------------------
         JPanel buttonPanel = new JPanel();
 
         confirmButton = new JButton("Confirm");

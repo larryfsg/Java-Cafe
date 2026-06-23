@@ -26,15 +26,19 @@ public class OrderEntryScreen extends JPanel{
             e.printStackTrace();
         }
 
+        // Customizing looks ---------------------------------------------
+        this.setBackground(JavaCafeGUI.backgroundColor);
+        this.setLayout(new BorderLayout());
+
         menuScroll.setOpaque(false);
         menuScroll.getViewport().setOpaque(false);
 
-        this.setBackground(JavaCafeGUI.backgroundColor);
-        this.setLayout(new BorderLayout());
+        // Adding components ---------------------------------------------        
         this.add(cart, BorderLayout.EAST);
         this.add(menuScroll, BorderLayout.CENTER);
     }
 
+    // getter methods
     public Menu getMenu(){
         return this.menu;
     }
