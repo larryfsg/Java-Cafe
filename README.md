@@ -87,4 +87,6 @@ Inventory screen and sales summary <br>
 
 ## ꩜ Developers
  ✿ [Larry Felipe](https://github.com/larryfsg/) <br>
+ NUSP: 16966460
  ✿ [Sarah Meicy](https://github.com/sarehicy) 
+ NUSP: 16830357
